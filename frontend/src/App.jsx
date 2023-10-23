@@ -1,7 +1,8 @@
 import "./App.scss";
+import OngletElixir from "./components/OngletElixir";
 
 function App() {
-  return <h1>Test</h1>;
+  return <OngletElixir />;
 }
 
 export default App;
