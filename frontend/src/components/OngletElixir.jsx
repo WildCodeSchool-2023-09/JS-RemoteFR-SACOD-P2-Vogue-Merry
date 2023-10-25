@@ -7,10 +7,11 @@ function OngletElixir() {
   const [elixir, setElixir] = useState();
   const [searchValue, setSearchValue] = useState("");
   const boutonStyle =
-    "bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition";
-  const nombreElixir = 100;
+    "bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat";
+  const nombreElixir = 32;
   /* const pageMax = 5; */
   const API = `https://api.potterdb.com/v1/potions?page[size]=${nombreElixir}`;
+
   useEffect(() => {
     axios.get(API).then((response) => {
       setElixir(response.data.data);
@@ -19,10 +20,14 @@ function OngletElixir() {
 
   /* if pour attendre les infos de l'API car sinon on ne peut pas boucler avec le map */
   if (!elixir) {
-    return <p>Chargement en cours</p>;
+    return (
+      <div className="flex justify-center items-center h-screen font-extrabold font-montserrat text-lg">
+        Chargement en cours 🚀
+      </div>
+    );
   }
   return (
-    <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto">
+    <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat">
       <div className="barre-de-recherche-elixir flex items-center justify-center gap-8">
         <img
           src={searchIcon}
@@ -31,8 +36,6 @@ function OngletElixir() {
         />
         <input
           type="search"
-          name=""
-          id=""
           placeholder="  Chercher un elixir"
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value.toLowerCase())}
@@ -45,7 +48,7 @@ function OngletElixir() {
         <p className={boutonStyle}>Medium</p>
         <p className={boutonStyle}>Hard</p>
       </div>
-      <div className="liste-elixir flex flex-wrap gap-1 justify-center">
+      <div className="liste-elixir flex flex-wrap gap-10 justify-center">
         {elixir
           .filter((element) =>
             element.attributes.name.toLowerCase().includes(searchValue)
