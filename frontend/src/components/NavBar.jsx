@@ -9,17 +9,25 @@ function NavBar() {
   return (
     <nav>
       <div className="head">
-        <img src="../src/assets/LOGO_1.png" alt="logo" />
+        <img id="logo" src="../src/assets/LOGO_1.png" alt="logo" />
         <div className="title">
           <h1>Elixir Maker</h1>
           <p>TEST YOUR KNOWLEDGE</p>
         </div>
       </div>
       <ul className="leaderboard">
-        <li>
-          <button type="button" /* onClick= {clickOnglet} */>Elixirs</button>
+        <li className="elixirAdjust">
+          <button type="button" /* onClick= {clickOnglet} */>
+            <img id="potion" src="../src/assets/potion.svg" alt="potion" />
+            <h1>Elixirs</h1>
+          </button>
         </li>
-        <li>Leaderboard</li>
+        <li className="trophyAdjust">
+          <button type="button" /* onClick= {clickOnglet} */>
+            <img id="trophy" src="../src/assets/trophy.svg" alt="trophy" />
+            <h1>Leaderboard</h1>
+          </button>
+        </li>
 
         <button type="button">
           <img
