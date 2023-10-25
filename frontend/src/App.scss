@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container-accueil {
+  display: flex;
+  background: url("./assets/BackgroundAccueil.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+button {
+  padding: 1rem 5rem;
+  
+  border-radius: 2rem;
+  border-width: 6px;
+  background-color: #9666d1 !important;
+  border-color: #6e28c3;
+ 
+  margin: 40px 50px 20px 40px;
+  color: white;
+  -webkit-text-stroke: 1.5px black;
+  font-size: 2.5rem;
+  font-family: Irish Grover;
+  &:hover {
+    background-color: #d9c8ee !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}
+.grand-logo {
+  height: 500px;
+  object-fit: contain;
+}

@@ -1,8 +1,8 @@
 import "./App.scss";
-import OngletElixir from "./components/OngletElixir";
+import Accueil from "./components/Accueil";
 
 function App() {
-  return <OngletElixir />;
+  return <Accueil />;
 }
 
 export default App;
