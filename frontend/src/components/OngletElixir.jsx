@@ -5,7 +5,10 @@ import Card from "./Card";
 
 function OngletElixir() {
   const [elixir, setElixir] = useState();
-  const nombreElixir = 1;
+  const [searchValue, setSearchValue] = useState("");
+  const boutonStyle =
+    "bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition";
+  const nombreElixir = 100;
   /* const pageMax = 5; */
   const API = `https://api.potterdb.com/v1/potions?page[size]=${nombreElixir}`;
   useEffect(() => {
@@ -27,37 +30,35 @@ function OngletElixir() {
           className="w-10 drop-shadow-md"
         />
         <input
-          type="text"
+          type="search"
           name=""
           id=""
           placeholder="  Chercher un elixir"
-          className="rounded-xl shadow-xl input-searchbar transition p-1"
+          value={searchValue}
+          onChange={(event) => setSearchValue(event.target.value.toLowerCase())}
+          className="rounded-xl shadow-xl input-searchbar transition p-1 border-4 border-white"
         />
       </div>
       <div className="filtre-elixir flex justify-center gap-10 max-sm:gap-2 text-white p-6 font-bold max-sm:flex-col mb-10">
-        <p className="bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition">
-          Tous
-        </p>
-        <p className="bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition">
-          Facile
-        </p>
-        <p className="bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition">
-          Moyen
-        </p>
-        <p className="bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition">
-          Difficile
-        </p>
+        <p className={boutonStyle}>All</p>
+        <p className={boutonStyle}>Easy</p>
+        <p className={boutonStyle}>Medium</p>
+        <p className={boutonStyle}>Hard</p>
       </div>
       <div className="liste-elixir flex flex-wrap gap-1 justify-center">
-        {elixir.map((element) => (
-          <Card
-            key={element.id}
-            name={element.attributes.name}
-            image={element.attributes.image}
-            effect={element.attributes.effect}
-            ingredients={element.attributes.ingredients}
-          />
-        ))}
+        {elixir
+          .filter((element) =>
+            element.attributes.name.toLowerCase().includes(searchValue)
+          )
+          .map((element) => (
+            <Card
+              key={element.id}
+              name={element.attributes.name}
+              image={element.attributes.image}
+              effect={element.attributes.effect}
+              ingredients={element.attributes.ingredients}
+            />
+          ))}
       </div>
     </div>
   );
