@@ -16,14 +16,14 @@ function NavBar() {
         </div>
       </div>
       <ul className="leaderboard">
-        <li className="elixirAdjust">
-          <button type="button" /* onClick= {clickOnglet} */>
+        <li>
+          <button id="potionButton" type="button" /* onClick= {clickOnglet} */>
             <img id="potion" src="../src/assets/potion.svg" alt="potion" />
             <h1>Elixirs</h1>
           </button>
         </li>
-        <li className="trophyAdjust">
-          <button type="button" /* onClick= {clickOnglet} */>
+        <li>
+          <button id="trophyButton" type="button" /* onClick= {clickOnglet} */>
             <img id="trophy" src="../src/assets/trophy.svg" alt="trophy" />
             <h1>Leaderboard</h1>
           </button>

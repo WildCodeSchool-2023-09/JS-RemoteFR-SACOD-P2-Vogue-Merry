@@ -28,7 +28,6 @@ nav {
 }
 h1 > p {
   display: flex;
-  justify-content: flex-start;
 }
 .leaderboard {
   display: flex;
@@ -36,21 +35,27 @@ h1 > p {
   align-items: center;
   font-size: 1rem;
 }
-.elixirAdjust {
+#potionButton {
   display: flex;
+  align-items: center;
 }
+#trophyButton {
+  display: flex;
+  align-items: center;
+}
+
 #potion {
-  max-height: 30px;
+  max-height: 50px;
 }
 #trophy {
-  max-height: 30px;
+  max-height: 50px;
 }
 #muteButton {
   max-height: 40px;
   max-width: 40px;
   color: #f7f7f7;
 }
-input#un-mute {
+/*input#un-mute {
   display: none;
 }
 .unmute img {
@@ -61,11 +66,12 @@ input#un-mute:checked ~ .unmute img {
 }
 input#un-mute:checked ~ .mute img {
   display: none;
-}
+} */
 @media only screen and (max-width: 600px) {
   .leaderboard {
     display: flex;
     font-size: 0.5rem;
+    gap: 1rem;
   }
   .title {
     display: none;
@@ -79,11 +85,14 @@ input#un-mute:checked ~ .mute img {
   }
   #potion {
     max-height: 40px;
+    align-items: center;
   }
   #trophy {
     max-height: 40px;
+    align-items: center;
   }
   #muteButton {
     max-height: 40px;
+    align-items: center;
   }
 }
