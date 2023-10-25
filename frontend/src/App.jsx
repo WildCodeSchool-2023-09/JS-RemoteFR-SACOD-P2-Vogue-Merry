@@ -1,13 +1,15 @@
 import "./App.scss";
-import OngletElixir from "./components/OngletElixir";
+/* import { useState } from "react"; */
 import NavBar from "./components/NavBar";
+import Music from "./components/Music";
 
 function App() {
+  /* const [isPlaying, setIsPlaying] = useState(false); */
   return (
-    <>
+    <div>
       <NavBar />
-      <OngletElixir />;
-    </>
+      <Music />
+    </div>
   );
 }
 

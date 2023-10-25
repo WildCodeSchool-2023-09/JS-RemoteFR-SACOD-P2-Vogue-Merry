@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html,
 body {
   margin: 0;
@@ -11,6 +12,7 @@ nav {
   align-items: center;
   color: #f7f7f7;
   background-color: blueviolet;
+  max-height: 100px;
 }
 .head {
   display: flex;
@@ -34,7 +36,7 @@ h1 > p {
   align-items: center;
   font-size: 1.5rem;
 }
-/*#muteButton {
+#muteButton {
   max-height: 50px;
   max-width: 50px;
   color: #f7f7f7;
@@ -50,4 +52,13 @@ input#un-mute:checked ~ .unmute img {
 }
 input#un-mute:checked ~ .mute img {
   display: none;
-}*/
+}
+@media only screen and (max-width: 600px) {
+  .leaderboard {
+    display: flex;
+    font-size: 1rem;
+  }
+  .title {
+    font-size: 0.7rem;
+  }
+}

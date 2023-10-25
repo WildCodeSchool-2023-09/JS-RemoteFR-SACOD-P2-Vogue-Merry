@@ -1,6 +1,11 @@
-import React from "react";
+/* import { useState } from "react"; 
+import OngletElixir from "./OngletElixir"; */
 
 function NavBar() {
+  /* const [elixir, setElixir] = useState();
+  function clickOnglet() {
+    <OngletElixir />;
+  } */
   return (
     <nav>
       <div className="head">
@@ -11,7 +16,9 @@ function NavBar() {
         </div>
       </div>
       <ul className="leaderboard">
-        <li>Elixirs</li>
+        <li>
+          <button type="button" /* onClick= {clickOnglet} */>Elixirs</button>
+        </li>
         <li>Leaderboard</li>
 
         <button type="button">
