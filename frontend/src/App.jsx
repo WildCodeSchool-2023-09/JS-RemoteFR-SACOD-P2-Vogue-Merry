@@ -1,11 +1,13 @@
+import "./App.scss";
+import OngletElixir from "./components/OngletElixir";
 import NavBar from "./components/NavBar";
-import "./App.css";
 
 function App() {
   return (
-    <div>
+    <>
       <NavBar />
-    </div>
+      <OngletElixir />;
+    </>
   );
 }
 
