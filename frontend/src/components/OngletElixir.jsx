@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import searchIcon from "../assets/search.svg";
+import Card from "./Card";
 
 function OngletElixir() {
+  const [elixir, setElixir] = useState();
+  const nombreElixir = 1;
+  /* const pageMax = 5; */
+  const API = `https://api.potterdb.com/v1/potions?page[size]=${nombreElixir}`;
+  useEffect(() => {
+    axios.get(API).then((response) => {
+      setElixir(response.data.data);
+    });
+  }, []);
+
+  /* if pour attendre les infos de l'API car sinon on ne peut pas boucler avec le map */
+  if (!elixir) {
+    return <p>Chargement en cours</p>;
+  }
   return (
     <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto">
       <div className="barre-de-recherche-elixir flex items-center justify-center gap-8">
@@ -31,15 +48,16 @@ function OngletElixir() {
           Difficile
         </p>
       </div>
-      <div className="container-elixir bg-purple-800 flex flex-col items-center w-96 text-white">
-        <h1 className="text-xl">Exemple elixir qui sera remplacer</h1>
-        <div className="description-elixir">
-          <p>Ici l'image</p>
-          <p>Effect:</p>
-          <p>Aged drinker temporarily</p>
-          <p>Ingedients</p>
-          <p>Newt spleens, Bananas, An orange snake, A green leaf</p>
-        </div>
+      <div className="liste-elixir flex flex-wrap gap-1 justify-center">
+        {elixir.map((element) => (
+          <Card
+            key={element.id}
+            name={element.attributes.name}
+            image={element.attributes.image}
+            effect={element.attributes.effect}
+            ingredients={element.attributes.ingredients}
+          />
+        ))}
       </div>
     </div>
   );
