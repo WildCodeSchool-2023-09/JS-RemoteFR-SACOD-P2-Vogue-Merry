@@ -1,8 +1,10 @@
-/* import { useState } from "react"; 
-import OngletElixir from "./OngletElixir"; */
+/* import { useState } from "react"; */
+import PlaySound from "./Music";
+/* import OngletElixir from "./OngletElixir"; */
 
 function NavBar() {
-  /* const [elixir, setElixir] = useState();
+  /* const [isPlaying, setIsPlaying] = useState(false);
+   const [elixir, setElixir] = useState();
   function clickOnglet() {
     <OngletElixir />;
   } */
@@ -29,13 +31,7 @@ function NavBar() {
           </button>
         </li>
 
-        <button type="button">
-          <img
-            id="muteButton"
-            src="../src/assets/Speaker_Icon.svg"
-            alt="mute"
-          />
-        </button>
+        <PlaySound />
       </ul>
     </nav>
   );

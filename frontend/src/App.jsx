@@ -3,7 +3,6 @@ import "./App.scss";
 import NavBar from "./components/NavBar";
 
 function App() {
-  /* const [isPlaying, setIsPlaying] = useState(false); */
   return (
     <div>
       <NavBar />
