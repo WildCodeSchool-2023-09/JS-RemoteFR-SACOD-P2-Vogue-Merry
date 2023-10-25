@@ -31,7 +31,7 @@ h1 > p {
   align-items: center;
   font-size: 1.5rem;
 }
-#muteButton {
+/*#muteButton {
   max-height: 50px;
   max-width: 50px;
   color: #f7f7f7;
@@ -47,4 +47,4 @@ input#un-mute:checked ~ .unmute img {
 }
 input#un-mute:checked ~ .mute img {
   display: none;
-}
+}*/
