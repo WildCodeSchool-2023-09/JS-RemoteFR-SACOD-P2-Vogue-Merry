@@ -6,7 +6,7 @@ function Card() {
         <p>Ici l'image </p>
         <p>Effect:</p>
         <p>Aged drinker temporarily</p>
-        <p>Ingedients</p>
+        <p>Ingedientsss</p>
         <p>Newt spleens, Bananas, An orange snake, A green leaf</p>
       </div>
     </div>
