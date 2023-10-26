@@ -1,13 +1,6 @@
-/* import { useState } from "react"; */
 import PlaySound from "./Music";
-/* import OngletElixir from "./OngletElixir"; */
 
 function NavBar() {
-  /* const [isPlaying, setIsPlaying] = useState(false);
-   const [elixir, setElixir] = useState();
-  function clickOnglet() {
-    <OngletElixir />;
-  } */
   return (
     <nav>
       <div className="head">
@@ -19,7 +12,7 @@ function NavBar() {
       </div>
       <ul className="leaderboard">
         <li>
-          <button id="potionButton" type="button" /* onClick= {clickOnglet} */>
+          <button id="potionButton" type="button">
             <img id="potion" src="../src/assets/potion.svg" alt="potion" />
             <h1>Elixirs</h1>
           </button>
