@@ -1,8 +1,14 @@
 import "./App.scss";
+import NavBar from "./components/NavBar";
 import Accueil from "./components/Accueil";
 
 function App() {
-  return <Accueil />;
+  return (
+    <>
+      <NavBar />
+      <Accueil />
+    </>
+  );
 }
 
 export default App;
