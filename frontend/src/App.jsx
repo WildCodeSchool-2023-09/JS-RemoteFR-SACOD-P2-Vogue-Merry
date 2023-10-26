@@ -1,20 +1,14 @@
+import { Route, Routes } from "react-router-dom";
 import OngletElixir from "./components/OngletElixir";
-import logo from "./assets/logo.svg";
+import Accueil from "./components/Accueil";
 import "./App.scss";
 
 function App() {
   return (
-    <>
-      <nav>
-        <img src={logo} alt="logo" className="h-20" />
-        <ul>
-          <li>Test1</li>
-          <li>Test2</li>
-          <li>Test3</li>
-        </ul>
-      </nav>
-      <OngletElixir />
-    </>
+    <Routes>
+      <Route path="/" element={<Accueil />} />
+      <Route path="/elixir" element={<OngletElixir />} />
+    </Routes>
   );
 }
 export default App;
