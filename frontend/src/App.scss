@@ -5,7 +5,34 @@
 html,
 body {
   margin: 0;
+  background-color: #e6d7fd;
 }
+
+.input-searchbar {
+  &:focus-within,
+  &:hover {
+    box-shadow:
+      rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+}
+
+.font-montserrat {
+  font-family: Montserrat, sans-serif;
+}
+
+.font-irish {
+  font-family:
+    Irish Grover,
+    sans-serif;
+}
+
+.container-elixir {
+  box-shadow:
+    rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
