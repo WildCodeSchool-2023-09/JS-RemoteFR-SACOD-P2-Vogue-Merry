@@ -1,19 +1,20 @@
 import Sound from "react-sound";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import Halloween from "../assets/is-halloween.mp3";
 
-function PlaySound(
+function PlaySound({
   handleSongLoading,
   handleSongPlaying,
-  handleSongFinishedPlaying
-) {
+  handleSongFinishedPlaying,
+}) {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <div>
       <Sound
         url={Halloween}
         playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-        playFromPosition={500} /* a definir */
+        playFromPosition={400}
         onloading={handleSongLoading}
         onPlaying={handleSongPlaying}
         onFinishedPlaying={handleSongFinishedPlaying}
@@ -24,5 +25,10 @@ function PlaySound(
     </div>
   );
 }
+PlaySound.propTypes = {
+  handleSongLoading: PropTypes.bool.isRequired,
+  handleSongPlaying: PropTypes.bool.isRequired,
+  handleSongFinishedPlaying: PropTypes.bool.isRequired,
+};
 
 export default PlaySound;

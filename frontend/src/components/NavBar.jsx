@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import PlaySound from "./Music";
 
-function NavBar() {
+function NavBar({ isPlaying, setIsPlaying }) {
   return (
     <nav>
       <div className="head">
@@ -18,15 +19,19 @@ function NavBar() {
           </button>
         </li>
         <li>
-          <button id="trophyButton" type="button" /* onClick= {clickOnglet} */>
+          <button id="trophyButton" type="button">
             <img id="trophy" src="../src/assets/trophy.svg" alt="trophy" />
             <h1>Leaderboard</h1>
           </button>
         </li>
 
-        <PlaySound />
+        <PlaySound song={isPlaying} handleChange={setIsPlaying} />
       </ul>
     </nav>
   );
 }
+NavBar.propTypes = {
+  isPlaying: PropTypes.bool.isRequired,
+  setIsPlaying: PropTypes.bool.isRequired,
+};
 export default NavBar;

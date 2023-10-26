@@ -1,5 +1,4 @@
 import "./App.scss";
-/* import { useState } from "react"; */
 import NavBar from "./components/NavBar";
 
 function App() {
