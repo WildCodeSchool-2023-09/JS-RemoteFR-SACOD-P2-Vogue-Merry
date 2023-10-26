@@ -2,6 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  margin: 0;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f7f7f7;
+  background-color: blueviolet;
+  max-height: 100px;
+}
+.head {
+  display: flex;
+  align-items: center;
+}
+.title h1,
+.title p {
+  margin: 0;
+}
+.head > img {
+  max-height: 60px;
+  align-self: center;
+}
+h1 > p {
+  display: flex;
+}
+.leaderboard {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 1rem;
+}
+#potionButton {
+  display: flex;
+  align-items: center;
+}
+#trophyButton {
+  display: flex;
+  align-items: center;
+}
+
+#potion {
+  max-height: 50px;
+}
+#trophy {
+  max-height: 50px;
+}
+#muteButton {
+  max-height: 40px;
+  max-width: 40px;
+  color: #f7f7f7;
+}
+@media only screen and (max-width: 600px) {
+  .leaderboard {
+    display: flex;
+    font-size: 0.5rem;
+    gap: 1rem;
+  }
+  .title {
+    display: none;
+  }
+  #logo {
+    max-height: 60px;
+    gap: 2rem;
+  }
+  .leaderboard h1 {
+    display: none;
+  }
+  #potion {
+    max-height: 40px;
+    align-items: center;
+  }
+  #trophy {
+    max-height: 40px;
+    align-items: center;
+  }
+  #muteButton {
+    max-height: 40px;
+    align-items: center;
+  }
+}
+
 .container-accueil {
   display: flex;
   background: url("./assets/BackgroundAccueil.png");
