@@ -1,6 +1,6 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Sound from "react-sound";
 import { useState } from "react";
+import Halloween from "../assets/is-halloween.mp3";
 
 function PlaySound(
   handleSongLoading,
@@ -11,9 +11,9 @@ function PlaySound(
   return (
     <div>
       <Sound
-        url="../src/assets/is-halloween.mp3"
+        url={Halloween}
         playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-        playFromPosition={300}
+        playFromPosition={500} /* a definir */
         onloading={handleSongLoading}
         onPlaying={handleSongPlaying}
         onFinishedPlaying={handleSongFinishedPlaying}
