@@ -1,8 +1,8 @@
 import "./App.scss";
-import OngletElixir from "./components/OngletElixir";
+import Footer from "./components/Footer";
 
 function App() {
-  return <OngletElixir />;
+  return <Footer />;
 }
 
 export default App;
