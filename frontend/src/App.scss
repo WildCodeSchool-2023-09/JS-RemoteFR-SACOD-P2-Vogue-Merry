@@ -170,3 +170,19 @@ h1 > p {
   height: 500px;
   object-fit: contain;
 }
+
+footer {
+  background-color: blueviolet;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  align-items: center;
+  max-height: 100px;
+  object-fit: contain;
+  @media screen and (max-width: 768px) {
+    font-size: 0.5rem;
+  }
+}
