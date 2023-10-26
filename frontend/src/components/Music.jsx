@@ -1,5 +1,5 @@
 import useSound from "use-sound";
-import { useState } from "react";
+import react from "react";
 import Sound from "../assets/is-halloween.mp3";
 import speack from "../assets/Speaker_Icon.svg";
 import mute from "../assets/Mute_Icon.svg";
@@ -7,7 +7,7 @@ import mute from "../assets/Mute_Icon.svg";
 let src = speack;
 
 function PlayingMusic() {
-  const [isPlaying, setIsPLaying] = useState(false);
+  const [isPlaying, setIsPLaying] = react.useState(false);
   const [play, { stop }] = useSound(Sound, { volume: 0.2 });
   const lunchMusic = () => {
     setIsPLaying(!isPlaying);
