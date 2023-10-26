@@ -7,8 +7,12 @@ function Accueil() {
         alt="grand_logo"
       />
       <div className="buttons">
-        <button type="button">PLAY</button>
-        <button type="button">RULES</button>
+        <button className="play" type="button" /* onClick={play} */>
+          PLAY
+        </button>
+        <button className="rules" type="button" /* onClick={rules} */>
+          RULES
+        </button>
       </div>
     </div>
   );
