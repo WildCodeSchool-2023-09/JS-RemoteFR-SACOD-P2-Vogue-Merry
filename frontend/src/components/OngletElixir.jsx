@@ -10,7 +10,6 @@ function OngletElixir() {
   const boutonStyle =
     "bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat";
   const nombreElixir = 32;
-  /* const pageMax = 5; */
   const API = `https://api.potterdb.com/v1/potions?page[size]=${nombreElixir}`;
 
   useEffect(() => {
@@ -19,7 +18,7 @@ function OngletElixir() {
     });
   }, []);
 
-  /* if pour attendre les infos de l'API car sinon on ne peut pas boucler avec le map */
+  /* condition pour attendre les infos de l'API car sinon on ne peut pas boucler avec le .map ligne 55 */
   if (!elixir) {
     return (
       <div className="flex justify-center items-center h-screen font-extrabold font-montserrat text-lg">
