@@ -1,7 +1,4 @@
-import PropTypes from "prop-types";
-import PlaySound from "./Music";
-
-function NavBar({ isPlaying, setIsPlaying }) {
+function NavBar() {
   return (
     <nav>
       <div className="head">
@@ -24,14 +21,9 @@ function NavBar({ isPlaying, setIsPlaying }) {
             <h1>Leaderboard</h1>
           </button>
         </li>
-
-        <PlaySound song={isPlaying} handleChange={setIsPlaying} />
       </ul>
     </nav>
   );
 }
-NavBar.propTypes = {
-  isPlaying: PropTypes.bool.isRequired,
-  setIsPlaying: PropTypes.func.isRequired,
-};
+
 export default NavBar;
