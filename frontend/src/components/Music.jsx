@@ -29,7 +29,7 @@ function PlayingMusic() {
           lunchMusic();
         }}
       >
-        <img src={src} alt="speacker" />
+        <img src={src} alt="speacker" className="w-12 h-12 pr-3" />
       </button>
     </div>
   );
