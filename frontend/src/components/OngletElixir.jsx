@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import searchIcon from "../assets/search.svg";
 import Card from "./Card";
+import loadingIcon from "../assets/loading.svg";
 
 function OngletElixir() {
   const [elixir, setElixir] = useState();
@@ -21,7 +22,12 @@ function OngletElixir() {
   if (!elixir) {
     return (
       <div className="flex justify-center items-center h-screen font-extrabold font-montserrat text-lg">
-        Chargement en cours 🚀
+        <img
+          src={loadingIcon}
+          className="loading-icon h-16 animate-spin p-4"
+          alt="loading icon"
+        />
+        Chargement en cours
       </div>
     );
   }
