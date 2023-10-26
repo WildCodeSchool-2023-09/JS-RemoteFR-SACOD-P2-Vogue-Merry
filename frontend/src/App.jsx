@@ -3,7 +3,6 @@ import OngletElixir from "./components/OngletElixir";
 import Accueil from "./components/Accueil";
 import NavBar from "./components/NavBar";
 import "./App.scss";
-import Footer from "./components/Footer";
 
 function App() {
   return (
