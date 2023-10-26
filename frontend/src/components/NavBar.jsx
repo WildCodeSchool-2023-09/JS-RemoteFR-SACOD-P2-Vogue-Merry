@@ -31,7 +31,7 @@ function NavBar({ isPlaying, setIsPlaying }) {
   );
 }
 NavBar.propTypes = {
-  isPlaying: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
 };
 export default NavBar;
