@@ -1,3 +1,5 @@
+import PlayingMusic from "./Music";
+
 function NavBar() {
   return (
     <nav>
@@ -21,6 +23,7 @@ function NavBar() {
             <h1>Leaderboard</h1>
           </button>
         </li>
+        <PlayingMusic />
       </ul>
     </nav>
   );
