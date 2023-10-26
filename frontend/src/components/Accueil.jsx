@@ -7,10 +7,10 @@ function Accueil() {
         alt="grand_logo"
       />
       <div className="buttons">
-        <button className="play" type="button" /* onClick={play} */>
+        <button className="play" type="button">
           PLAY
         </button>
-        <button className="rules" type="button" /* onClick={rules} */>
+        <button className="rules" type="button">
           RULES
         </button>
       </div>
