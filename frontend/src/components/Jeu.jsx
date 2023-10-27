@@ -17,7 +17,7 @@ function Jeu() {
             </p>
           </div>
           <div className="text-white h-96 w-80 p-10  flex flex-col  gap-10">
-            <div className="flex flex row">
+            <div className="flex flex-row">
               <h3>PV</h3>
               <img src={PV} alt="PV" className="w-15 h-12" />
               <img src={PV} alt="PV" className="w-15 h-12" />
