@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Accueil() {
   return (
     <div className="container-accueil">
@@ -7,9 +9,11 @@ function Accueil() {
         alt="grand_logo"
       />
       <div className="buttons">
-        <button className="play" type="button">
-          PLAY
-        </button>
+        <Link to="/difficulty">
+          <button className="play" type="button">
+            PLAY
+          </button>
+        </Link>
         <button className="rules" type="button">
           RULES
         </button>
