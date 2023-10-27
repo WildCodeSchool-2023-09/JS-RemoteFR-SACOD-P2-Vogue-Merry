@@ -14,9 +14,11 @@ function Accueil() {
             PLAY
           </button>
         </Link>
-        <button className="rules" type="button">
-          RULES
-        </button>
+        <Link to="/rules">
+          <button className="rules" type="button">
+            RULES
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import OngletLevel from "./components/OngletLevel";
 import "./App.scss";
+import Rules from "./components/Rules";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/difficulty" element={<OngletLevel />} />
+        <Route path="/rules" element={<Rules />} />
         <Route path="/elixir" element={<OngletElixir />} />
       </Routes>
       <Footer />

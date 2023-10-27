@@ -222,3 +222,48 @@ footer {
     }
   }
 }
+
+.titreRules {
+  margin-top: 1rem;
+  border-radius: 2rem;
+  border-width: 6px;
+  background-color: #9666d1;
+  border-color: #6e28c3;
+  padding: 0.1vw 15vw 0.1vw 15vw;
+  color: white;
+  -webkit-text-stroke: 1.5px black;
+  font-size: 2.5rem;
+  font-family: Irish Grover;
+  box-shadow:
+    rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.parchRules {
+  display: flex;
+  background-image: url("./assets/parch_rules.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  height: 45rem;
+  width: 80ch;
+  p {
+    width: 40ch;
+  }
+}
+@media screen and (max-width: 768px) {
+  .parchRules {
+    background-color: #9666d1;
+    background-image: none;
+    border-radius: 2rem;
+    color: white;
+    width: 90vw;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    p {
+      max-width: 90%;
+    }
+  }
+}
