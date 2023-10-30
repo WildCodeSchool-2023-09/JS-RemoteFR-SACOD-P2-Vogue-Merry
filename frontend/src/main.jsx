@@ -15,11 +15,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Accueil />,
       },
       {
-        path: "/elixir",
+        path: "elixir",
         element: <OngletElixir />,
       },
     ],

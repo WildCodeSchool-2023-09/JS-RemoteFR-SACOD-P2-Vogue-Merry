@@ -7,7 +7,7 @@ function NavBar() {
     <nav>
       <NavLink to="/">
         <div className="head">
-          <img id="logo" src="../src/assets/LOGO_1.png" alt="logo" />
+          <img id="logo" src="../src/assets/logo.png" alt="logo" />
           <div className="title">
             <h1>Elixir Maker</h1>
             <p>TEST YOUR KNOWLEDGE</p>

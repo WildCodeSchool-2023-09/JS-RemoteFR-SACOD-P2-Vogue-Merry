@@ -9,8 +9,10 @@ function ErrorPage() {
     >
       <h1 className="text-4xl">Oops!</h1>
       <p className="text-xl">Sorry, an unexpected error has occurred.</p>
-      <p className="text-lg">
-        <i>{error.statusText || error.message}</i>
+      <p className="flex flex-col">
+        <i>{error.statusText}</i>
+        <i>{error.error.message || "Erreur"}</i>
+        <i>Status: {error.status && error.status}</i>
       </p>
     </div>
   );
