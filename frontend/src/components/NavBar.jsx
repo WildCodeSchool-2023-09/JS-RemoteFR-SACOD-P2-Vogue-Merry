@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import PlayingMusic from "./Music";
 
 function NavBar() {
   return (
     <nav>
-      <NavLink to="/">
+      <Link to="/">
         <div className="head">
           <img id="logo" src="../src/assets/logo.png" alt="logo" />
           <div className="title">
@@ -13,15 +13,15 @@ function NavBar() {
             <p>TEST YOUR KNOWLEDGE</p>
           </div>
         </div>
-      </NavLink>
+      </Link>
       <ul className="leaderboard">
         <li>
-          <NavLink to="/elixir">
+          <Link to="/elixir">
             <button id="potionButton" type="button">
               <img id="potion" src="../src/assets/potion.svg" alt="potion" />
               <h1>Elixirs</h1>
             </button>
-          </NavLink>
+          </Link>
         </li>
         <li>
           <button id="trophyButton" type="button">
