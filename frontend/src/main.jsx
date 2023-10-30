@@ -25,10 +25,6 @@ const router = createBrowserRouter([
         element: <OngletElixir />,
       },
       {
-        path: "jeu",
-        element: <Jeu />,
-      },
-      {
         path: "difficulty",
         element: <OngletLevel />,
       },
