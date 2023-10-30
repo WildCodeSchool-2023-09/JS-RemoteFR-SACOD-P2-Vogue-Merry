@@ -18,6 +18,10 @@ module.exports = {
           950: "#340b60",
         },
       },
+      backgroundImage: {
+        "fond-ok": "url('./assets/potionclassroom-animation-ok.gif')",
+        "fond-false": "url(./assets/potionclassroom-animation-ok.gif')",
+      },
     },
   },
   plugins: [],
