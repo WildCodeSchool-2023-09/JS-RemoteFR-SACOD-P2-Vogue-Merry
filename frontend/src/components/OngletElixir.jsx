@@ -32,7 +32,7 @@ function OngletElixir() {
     );
   }
   return (
-    <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat">
+    <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat mb-10">
       <div className="barre-de-recherche-elixir flex items-center justify-center gap-8">
         <img
           src={searchIcon}
