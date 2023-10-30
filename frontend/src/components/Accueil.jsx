@@ -10,7 +10,7 @@ function Accueil() {
       />
 
       <div className="buttons">
-        <Link to="/jeu">
+        <Link to="jeu">
           <button className="play" type="button">
             PLAY
           </button>

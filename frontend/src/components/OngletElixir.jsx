@@ -8,7 +8,7 @@ function OngletElixir() {
   const [elixir, setElixir] = useState();
   const [searchValue, setSearchValue] = useState("");
   const boutonStyle =
-    "bg-purple-heart-500 px-24 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat";
+    "bg-purple-heart-500 px-24 max-xl:px-12 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat";
   const nombreElixir = 32;
   const API = `https://api.potterdb.com/v1/potions?page[size]=${nombreElixir}`;
 
