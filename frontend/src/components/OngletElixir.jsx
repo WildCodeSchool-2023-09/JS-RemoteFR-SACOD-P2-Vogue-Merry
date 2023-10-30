@@ -7,16 +7,24 @@ import loadingIcon from "../assets/loading.svg";
 function OngletElixir() {
   const [elixir, setElixir] = useState();
   const [searchValue, setSearchValue] = useState("");
-  const boutonStyle =
-    "bg-purple-heart-500 px-24 max-xl:px-12 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat";
-  const nombreElixir = 32;
-  const API = `https://api.potterdb.com/v1/potions?page[size]=${nombreElixir}`;
+  const [difficulty, setDifficulty] = useState(undefined);
+
+  function handleDifficulty(value) {
+    setDifficulty(value);
+  }
 
   useEffect(() => {
+    let API = `https://api.potterdb.com/v1/potions`;
+    if (difficulty) {
+      API = `https://api.potterdb.com/v1/potions?filter[difficulty_not_null]=true&filter[ingredients_not_null]=true&filter[difficulty_cont_any]=${difficulty}`;
+    }
     axios.get(API).then((response) => {
       setElixir(response.data.data);
     });
-  }, []);
+  }, [difficulty]);
+
+  const boutonStyle =
+    "bg-purple-heart-500 px-24 max-xl:px-12 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat";
 
   /* condition pour attendre les infos de l'API car sinon on ne peut pas boucler avec le .map ligne 55 */
   if (!elixir) {
@@ -48,10 +56,34 @@ function OngletElixir() {
         />
       </div>
       <div className="filtre-elixir flex justify-center gap-10 max-sm:gap-2 text-white p-6 font-bold max-sm:flex-col mb-10">
-        <p className={boutonStyle}>All</p>
-        <p className={boutonStyle}>Easy</p>
-        <p className={boutonStyle}>Medium</p>
-        <p className={boutonStyle}>Hard</p>
+        <button
+          type="button"
+          onClick={() => handleDifficulty(undefined)}
+          className={boutonStyle}
+        >
+          All
+        </button>
+        <button
+          type="button"
+          onClick={() => handleDifficulty("beginner")}
+          className={boutonStyle}
+        >
+          Easy
+        </button>
+        <button
+          type="button"
+          onClick={() => handleDifficulty("moderate,advanced")}
+          className={boutonStyle}
+        >
+          Medium
+        </button>
+        <button
+          type="button"
+          onClick={() => handleDifficulty("wizard")}
+          className={boutonStyle}
+        >
+          Hard
+        </button>
       </div>
       <div className="liste-elixir flex flex-wrap gap-10 justify-center">
         {elixir

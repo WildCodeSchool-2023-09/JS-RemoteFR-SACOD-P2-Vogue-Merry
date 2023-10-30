@@ -23,7 +23,6 @@ const router = createBrowserRouter([
       {
         path: "elixir",
         element: <OngletElixir />,
-        children: [],
       },
       {
         path: "jeu",
