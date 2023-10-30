@@ -10,14 +10,16 @@ function Accueil() {
       />
 
       <div className="buttons">
-        <Link to="jeu">
+        <Link to="difficulty">
           <button className="play" type="button">
             PLAY
           </button>
         </Link>
-        <button className="rules" type="button">
-          RULES
-        </button>
+        <Link to="rules">
+          <button className="rules" type="button">
+            RULES
+          </button>
+        </Link>
       </div>
     </div>
   );
