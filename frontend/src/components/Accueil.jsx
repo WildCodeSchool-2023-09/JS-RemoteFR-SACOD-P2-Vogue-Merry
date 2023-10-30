@@ -8,6 +8,7 @@ function Accueil() {
         src="../src/assets/grand_logo.png"
         alt="grand_logo"
       />
+
       <div className="buttons">
         <Link to="/difficulty">
           <button className="play" type="button">

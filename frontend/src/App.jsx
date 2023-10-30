@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import OngletLevel from "./components/OngletLevel";
 import "./App.scss";
+import Jeu from "./components/Jeu";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Accueil />} />
         <Route path="/difficulty" element={<OngletLevel />} />
         <Route path="/elixir" element={<OngletElixir />} />
+        <Route path="/jeu" element={<Jeu />} />
       </Routes>
       <Footer />
     </>
