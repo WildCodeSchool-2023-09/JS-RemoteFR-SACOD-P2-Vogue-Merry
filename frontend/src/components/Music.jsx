@@ -4,7 +4,7 @@ import Sound from "../assets/is-halloween.mp3";
 import speack from "../assets/Speaker_Icon.svg";
 import mute from "../assets/Mute_Icon.svg";
 
-let src = speack;
+let src = mute;
 
 function PlayingMusic() {
   const [isPlaying, setIsPLaying] = react.useState(false);
@@ -13,10 +13,10 @@ function PlayingMusic() {
     setIsPLaying(!isPlaying);
     if (isPlaying === false) {
       play();
-      src = mute;
+      src = speack;
     } else {
       stop();
-      src = speack;
+      src = mute;
     }
   };
 
@@ -29,7 +29,7 @@ function PlayingMusic() {
           lunchMusic();
         }}
       >
-        <img src={src} alt="speacker" className="w-12 h-12 pr-3" />
+        <img src={src} alt="speacker" className="w-16 pr-3 self-center" />
       </button>
     </div>
   );
