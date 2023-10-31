@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 
-
 function Ingredients({ ingredient, ingredientsPotion, setAnimation }) {
   function returnToTrueAnimation() {
     setAnimation("bg");
@@ -27,6 +26,5 @@ Ingredients.propTypes = {
   ingredient: PropTypes.string.isRequired,
   ingredientsPotion: PropTypes.isRequired,
   setAnimation: PropTypes.func.isRequired,
-
 };
 export default Ingredients;
