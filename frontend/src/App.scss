@@ -275,3 +275,17 @@ footer {
     }
   }
 }
+#bg {
+  background-image: url("./assets/potionclassroom-animation-ok.gif");
+  @media screen and (max-width: 450px) {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+#bgFalse {
+  background-image: url("./assets/potionclassroom-animation-false.gif");
+  @media screen and (max-width: 450px) {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
