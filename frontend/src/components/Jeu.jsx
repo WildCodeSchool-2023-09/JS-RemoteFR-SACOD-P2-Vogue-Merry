@@ -4,6 +4,7 @@ import PV from "../assets/f7dfdf45.png";
 import Ingredients from "./Ingredients";
 import "../App.scss";
 
+
 function Jeu() {
   const [potions, setPotions] = useState([]);
   useEffect(() => {

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 
+
 function Ingredients({ ingredient, ingredientsPotion, setAnimation }) {
   function returnToTrueAnimation() {
     setAnimation("bg");
@@ -10,6 +11,7 @@ function Ingredients({ ingredient, ingredientsPotion, setAnimation }) {
       setTimeout(returnToTrueAnimation, 3000);
     }
   };
+
   return (
     <button
       type="button"
@@ -25,5 +27,6 @@ Ingredients.propTypes = {
   ingredient: PropTypes.string.isRequired,
   ingredientsPotion: PropTypes.isRequired,
   setAnimation: PropTypes.func.isRequired,
+
 };
 export default Ingredients;
