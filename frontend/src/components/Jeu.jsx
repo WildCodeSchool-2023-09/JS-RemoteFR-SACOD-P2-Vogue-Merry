@@ -27,7 +27,7 @@ function Jeu() {
   }
 
   const allIngredients = ingredientsPotion?.concat(
-    wrongIngredients.slice(0, 6)
+    wrongIngredients.slice(0, 10 - ingredientsPotion.length)
   );
   allIngredients?.sort();
   console.info(allIngredients);
