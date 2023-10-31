@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import PV from "../assets/f7dfdf45.png";
-import Ingredients from "./Ingrédients";
+import Ingredients from "./Ingredients";
 import "../App.scss";
 
 function Jeu() {
