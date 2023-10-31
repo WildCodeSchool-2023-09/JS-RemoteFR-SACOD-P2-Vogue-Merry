@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import PV from "../assets/f7dfdf45.png";
 import Ingredients from "./Ingredients";
+import "../App.scss";
 
 function Jeu() {
   const [potions, setPotions] = useState([]);
@@ -27,15 +28,13 @@ function Jeu() {
   }
 
   const allIngredients = ingredientsPotion?.concat(
-    wrongIngredients.slice(0, 6)
+    wrongIngredients.slice(0, 10 - ingredientsPotion.length)
   );
   allIngredients?.sort();
-  console.info(allIngredients);
+  const [animation, setAnimation] = useState("bg");
+
   return (
-    <div
-      className="h-screen w-full flex justify:center bg-[url('./assets/potionclassroom-animation-ok.gif')] bg-cover 
-        max-sm:bg-contain max-sm:bg-no-repeat "
-    >
+    <div id={animation} className="h-screen w-full flex justify:center ">
       <div
         className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
       "
@@ -103,7 +102,11 @@ function Jeu() {
               key={ingredient}
               className="flex  bg-purple-heart-500 w-56 h-10 rounded m-2 max-sm:w-42"
             >
-              <Ingredients ingredient={ingredient} />
+              <Ingredients
+                ingredient={ingredient}
+                ingredientsPotion={ingredientsPotion}
+                setAnimation={setAnimation}
+              />
             </div>
           ))}
         </div>
