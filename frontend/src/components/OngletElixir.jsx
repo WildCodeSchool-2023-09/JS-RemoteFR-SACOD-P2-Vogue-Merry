@@ -7,7 +7,7 @@ import loadingIcon from "../assets/loading.svg";
 function OngletElixir() {
   const [elixir, setElixir] = useState();
   const [searchValue, setSearchValue] = useState("");
-  const [difficulty, setDifficulty] = useState(undefined);
+  const [difficulty, setDifficulty] = useState(null);
 
   function handleDifficulty(value) {
     setDifficulty(value);
