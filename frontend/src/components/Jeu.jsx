@@ -31,9 +31,10 @@ function Jeu() {
     wrongIngredients.slice(0, 10 - ingredientsPotion.length)
   );
   allIngredients?.sort();
-  console.info(allIngredients);
+  const [animation, setAnimation] = useState("bg");
+
   return (
-    <div id="bg" className="h-screen w-full flex justify:center ">
+    <div id={animation} className="h-screen w-full flex justify:center ">
       <div
         className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
       "
@@ -101,7 +102,11 @@ function Jeu() {
               key={ingredient}
               className="flex  bg-purple-heart-500 w-56 h-10 rounded m-2 max-sm:w-42"
             >
-              <Ingredients ingredient={ingredient} />
+              <Ingredients
+                ingredient={ingredient}
+                ingredientsPotion={ingredientsPotion}
+                setAnimation={setAnimation}
+              />
             </div>
           ))}
         </div>
