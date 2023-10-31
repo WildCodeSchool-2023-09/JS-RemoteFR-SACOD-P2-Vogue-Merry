@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import PV from "../assets/f7dfdf45.png";
 import Ingredients from "./Ingrédients";
+import "../App.scss";
 
 function Jeu() {
   const [potions, setPotions] = useState([]);
@@ -32,10 +33,7 @@ function Jeu() {
   allIngredients?.sort();
   console.info(allIngredients);
   return (
-    <div
-      className="h-screen w-full flex justify:center bg-[url('./assets/potionclassroom-animation-ok.gif')] bg-cover 
-        max-sm:bg-contain max-sm:bg-no-repeat "
-    >
+    <div id="bg" className="h-screen w-full flex justify:center ">
       <div
         className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
       "
