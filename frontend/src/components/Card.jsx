@@ -22,7 +22,9 @@ function Card({ name, image, effect, ingredients }) {
       <p className="font-extrabold">Effect:</p>
       <p>{effect || "No effect or unknown"}</p>
       <p className="font-extrabold">Ingedients</p>
-      <p>{ingredients || "Not known yet"}</p>
+      <p className="overflow-auto ingredients">
+        {ingredients || "Not known yet"}
+      </p>
     </div>
   );
 }

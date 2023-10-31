@@ -33,6 +33,13 @@ body {
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
+.ingredients {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 nav {
   display: flex;
   justify-content: space-between;

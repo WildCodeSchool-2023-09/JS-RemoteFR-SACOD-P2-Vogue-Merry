@@ -7,7 +7,7 @@ import loadingIcon from "../assets/loading.svg";
 function OngletElixir() {
   const [elixir, setElixir] = useState();
   const [searchValue, setSearchValue] = useState("");
-  const [difficulty, setDifficulty] = useState(undefined);
+  const [difficulty, setDifficulty] = useState(null);
 
   function handleDifficulty(value) {
     setDifficulty(value);
@@ -58,7 +58,7 @@ function OngletElixir() {
       <div className="filtre-elixir flex justify-center gap-10 max-sm:gap-2 text-white p-6 font-bold max-sm:flex-col mb-10">
         <button
           type="button"
-          onClick={() => handleDifficulty(undefined)}
+          onClick={() => handleDifficulty(null)}
           className={boutonStyle}
         >
           All
