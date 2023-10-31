@@ -16,7 +16,6 @@ function NavBar() {
       </Link>
       <ul className="leaderboard">
         <li>
-
           <NavLink to="elixir">
             <button id="potionButton" type="button">
               <img id="potion" src="../src/assets/potion.svg" alt="potion" />
