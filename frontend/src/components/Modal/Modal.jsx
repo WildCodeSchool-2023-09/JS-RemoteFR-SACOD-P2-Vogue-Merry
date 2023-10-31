@@ -3,14 +3,18 @@ import PropTypes from "prop-types";
 function Modal({ closeModal }) {
   return (
     <section>
-      <button type="button" onClick={() => closeModal(false)}>
-        {" "}
-        X{" "}
-      </button>
       <div className="mx-auto w-full max-w-3xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-        <div className="mx-auto max-w-xl bg-[#f2f2f7] px-8 py-12 text-center">
+        <div className="mx-auto max-w-xl bg-purple-heart-100 px-8 pb-12 pt-2 text-center rounded-xl">
           <h2 className="text-3xl font-bold md:text-5xl">
-            Start 14-day free trial
+            <div className="flex justify-end mr-10">
+              <button
+                className="text-[#636262] text-2xl"
+                type="button"
+                onClick={() => closeModal(false)}
+              >
+                <p> X </p>
+              </button>
+            </div>
           </h2>
           <p className="mx-auto my-5 max-w-md text-sm text-[#636262] sm:text-base lg:mb-8">
             Lorem ipsum dolor sit amet consectetur adipiscing elit ut
@@ -19,7 +23,7 @@ function Modal({ closeModal }) {
           <div className="mx-auto w-full max-w-[400px]">
             <p
               href="#"
-              className="flex w-full max-w-full justify-center rounded-md bg-black py-3 text-white"
+              className="flex w-full max-w-full justify-center rounded-md bg-purple-heart-500 py-3 text-white"
             >
               <img
                 src="https://assets.website-files.com/6458c625291a94a195e6cf3a/6458c625291a947090e6cf87_GoogleLogo.svg"
@@ -72,13 +76,13 @@ function Modal({ closeModal }) {
                 <input
                   type="submit"
                   value="Sign Up"
-                  className="mt-4 inline-block w-full cursor-pointer items-center rounded-md bg-black px-6 py-3 text-center font-semibold text-white"
+                  className="mt-4 inline-block w-full cursor-pointer items-center rounded-md bg-purple-heart-500 px-6 py-3 text-center font-semibold text-white"
                 />
               </form>
             </div>
             <p className="text-sm text-[#636262]">
               Already have an account?{" "}
-              <p href="#" className="font-bold text-[#0b0b1f]">
+              <p href="#" className="font-bold text-purple-heart-900 ">
                 Login now
               </p>
             </p>

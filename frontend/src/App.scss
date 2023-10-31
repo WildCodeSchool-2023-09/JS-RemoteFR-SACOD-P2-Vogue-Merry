@@ -39,7 +39,8 @@ nav {
   align-items: center;
   color: #f7f7f7;
   background-color: blueviolet;
-  max-height: 100px;
+  height: 7vh;
+  padding: 1rem;
 }
 .head {
   display: flex;
@@ -83,6 +84,9 @@ h1 > p {
   color: #f7f7f7;
 }
 @media only screen and (max-width: 600px) {
+  nav {
+    padding: 0.5rem;
+  }
   .leaderboard {
     display: flex;
     font-size: 0.5rem;
@@ -92,7 +96,7 @@ h1 > p {
     display: none;
   }
   #logo {
-    max-height: 60px;
+    max-height: 50px;
     gap: 2rem;
   }
   .leaderboard h1 {
@@ -117,7 +121,7 @@ h1 > p {
   background: url("./assets/BackgroundAccueil.png");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 88vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -179,9 +183,9 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 5px;
-  align-items: flex-end;
-  max-height: 2rem;
-  //object-fit: contain;
+  align-items: center;
+  height: 5vh;
+  object-fit: contain;
   @media screen and (max-width: 768px) {
     font-size: 0.5rem;
   }
@@ -208,4 +212,81 @@ footer {
   width: 100vw;
   height: 100vh;
   z-index: 100;
+}
+.levelButton {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  button {
+    border-radius: 2rem;
+    border-width: 6px;
+    background-color: #9666d1;
+    border-color: #6e28c3;
+    padding: 1rem;
+    width: clamp(200px, 30vw, 40rem);
+    color: white;
+    -webkit-text-stroke: 1.5px black;
+    font-size: 2.5rem;
+    font-family: Irish Grover;
+    box-shadow:
+      rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px,
+      rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    &:hover {
+      background-color: #d9c8ee;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.titreRules {
+  margin-top: 1rem;
+  border-radius: 2rem;
+  border-width: 6px;
+  background-color: #9666d1;
+  border-color: #6e28c3;
+  padding: 0.1vw 15vw 0.1vw 15vw;
+  color: white;
+  -webkit-text-stroke: 1.5px black;
+  font-size: 2.5rem;
+  font-family: Irish Grover;
+  box-shadow:
+    rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.parchRules {
+  display: flex;
+  background-image: url("./assets/parch_rules.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  height: 45rem;
+  width: 80ch;
+  p {
+    width: 40ch;
+  }
+}
+@media screen and (max-width: 768px) {
+  .parchRules {
+    background-color: #9666d1;
+    background-image: none;
+    border-radius: 2rem;
+    color: white;
+    width: 90vw;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    p {
+      max-width: 90%;
+    }
+  }
 }
