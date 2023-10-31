@@ -11,7 +11,7 @@ function ErrorPage() {
       <p className="text-xl">Sorry, an unexpected error has occurred.</p>
       <p className="flex flex-col">
         <i>{error.statusText}</i>
-        <i>{error.message || "Erreur"}</i>
+        <i>{error.error.message || "Erreur"}</i>
         <i>Status: {error.status && error.status}</i>
       </p>
     </div>

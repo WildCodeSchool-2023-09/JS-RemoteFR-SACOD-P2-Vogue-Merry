@@ -18,14 +18,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Accueil />,
       },
-      {
-        path: "level",
-        element: <OngletLevel />,
-      },
-      {
-        path: "jeu",
-        element: <Jeu />,
-      },
+
       {
         path: "elixir",
         element: <OngletElixir />,
