@@ -5,7 +5,7 @@ import PlayingMusic from "./Music";
 function NavBar() {
   return (
     <nav>
-      <Link to="/">
+      <NavLink to="/">
         <div className="head">
           <img id="logo" src="../src/assets/logo.png" alt="logo" />
           <div className="title">
@@ -13,7 +13,7 @@ function NavBar() {
             <p>TEST YOUR KNOWLEDGE</p>
           </div>
         </div>
-      </Link>
+      </NavLink>
       <ul className="leaderboard">
         <li>
           <NavLink to="elixir">
