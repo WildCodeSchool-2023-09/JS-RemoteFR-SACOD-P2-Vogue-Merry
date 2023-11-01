@@ -4,11 +4,11 @@ function Modal({ closeModal }) {
   return (
     <section>
       <div className="mx-auto w-full max-w-3xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-        <div className="mx-auto max-w-xl bg-purple-heart-100 px-8 pb-12 pt-2 text-center rounded-xl">
+        <div className="max-w-xl bg-purple-heart-100 px-8 pb-12 pt-2 text-center rounded-xl">
           <h2 className="text-3xl font-bold md:text-5xl">
-            <div className="flex justify-end mr-10">
+            <div className="flex justify-end">
               <button
-                className="text-[#636262] text-2xl"
+                className="text-[#636262] text-2xl translate-x-4"
                 type="button"
                 onClick={() => closeModal(false)}
               >

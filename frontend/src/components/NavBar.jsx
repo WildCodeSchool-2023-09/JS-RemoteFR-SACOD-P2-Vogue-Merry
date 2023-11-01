@@ -24,10 +24,12 @@ function NavBar() {
           </NavLink>
         </li>
         <li>
-          <button id="trophyButton" type="button">
-            <img id="trophy" src="../src/assets/trophy.svg" alt="trophy" />
-            <h1>Leaderboard</h1>
-          </button>
+          <NavLink to="leaderboard">
+            <button id="trophyButton" type="button">
+              <img id="trophy" src="../src/assets/trophy.svg" alt="trophy" />
+              <h1>Leaderboard</h1>
+            </button>
+          </NavLink>
         </li>
         <PlayingMusic />
       </ul>

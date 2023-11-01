@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "./Modal/Modal";
+import Login from "./Modal/Login";
 
 function Footer() {
   const [openModal, setOpenModal] = useState(false);
@@ -16,8 +16,8 @@ function Footer() {
         Login
       </button>
       {openModal && (
-        <div className="blur-background">
-          <Modal closeModal={() => setOpenModal(false)} />
+        <div className="blur-background flex items-center justify-center">
+          <Login closeModal={() => setOpenModal(false)} />
         </div>
       )}
     </footer>
