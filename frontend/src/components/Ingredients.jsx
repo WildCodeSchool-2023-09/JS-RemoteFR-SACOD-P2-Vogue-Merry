@@ -1,13 +1,33 @@
 import PropTypes from "prop-types";
+import ingredientImg from "../assets/ingredient.png";
 
-function Ingredients({ ingredient, ingredientsPotion, setAnimation }) {
+function Ingredients({
+  ingredient,
+  ingredientsPotion,
+  setImgIngredient,
+  ingtransp,
+  setBg,
+}) {
   function returnToTrueAnimation() {
-    setAnimation("bg");
+    setBg("bgTrue");
   }
+
+  function toInvisibleImg() {
+    setImgIngredient(ingtransp);
+  }
+  const endAnimation = () => {
+    setTimeout(returnToTrueAnimation, 3000);
+  };
+  const endImgIngredient = () => {
+    setTimeout(toInvisibleImg, 2500);
+  };
   const isTrue = () => {
     if (ingredientsPotion.includes(ingredient) !== true) {
-      setAnimation("bgFalse");
-      setTimeout(returnToTrueAnimation, 3000);
+      setBg("bgFalse");
+      endAnimation();
+    } else {
+      setImgIngredient(ingredientImg);
+      endImgIngredient();
     }
   };
 
@@ -25,6 +45,8 @@ function Ingredients({ ingredient, ingredientsPotion, setAnimation }) {
 Ingredients.propTypes = {
   ingredient: PropTypes.string.isRequired,
   ingredientsPotion: PropTypes.isRequired,
-  setAnimation: PropTypes.func.isRequired,
+  setImgIngredient: PropTypes.func.isRequired,
+  ingtransp: PropTypes.string.isRequired,
+  setBg: PropTypes.func.isRequired,
 };
 export default Ingredients;
