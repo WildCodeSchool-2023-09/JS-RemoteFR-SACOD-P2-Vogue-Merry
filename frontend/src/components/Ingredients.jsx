@@ -8,20 +8,23 @@ function Ingredients({
   ingtransp,
   setBg,
 }) {
-  function returnToTrueAnimation() {
-    setBg("bgTrue");
-  }
-
-  function toInvisibleImg() {
-    setImgIngredient(ingtransp);
-  }
-  const endAnimation = () => {
-    setTimeout(returnToTrueAnimation, 3000);
-  };
-  const endImgIngredient = () => {
-    setTimeout(toInvisibleImg, 2500);
-  };
   const isTrue = () => {
+    function returnToTrueAnimation() {
+      setBg("bgTrue");
+    }
+
+    function toInvisibleImg() {
+      setImgIngredient(ingtransp);
+    }
+
+    const endAnimation = () => {
+      setTimeout(returnToTrueAnimation, 3000);
+    };
+
+    const endImgIngredient = () => {
+      setTimeout(toInvisibleImg, 2500);
+    };
+
     if (ingredientsPotion.includes(ingredient) !== true) {
       setBg("bgFalse");
       endAnimation();
@@ -35,7 +38,7 @@ function Ingredients({
     <button
       type="button"
       className="flex text-white font-irish w-full h-full justify-center items-center "
-      onClick={isTrue}
+      onClick={() => isTrue()}
     >
       {ingredient}
     </button>

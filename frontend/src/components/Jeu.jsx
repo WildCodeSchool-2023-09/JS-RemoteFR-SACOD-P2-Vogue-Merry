@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import PV from "../assets/f7dfdf45.png";
 import Ingredients from "./Ingredients";
 import "../App.scss";
@@ -20,22 +20,38 @@ function Jeu() {
   }, []);
 
   const ingredientsPotion = potions[0]?.attributes.ingredients.split(",");
-  const random = Math.ceil(Math.random() * potions.length);
 
   let wrongIngredients = [];
-
-  for (let i = random; i < potions.length; i += 1) {
-    const arr = potions[i]?.attributes.ingredients.split(",");
-    wrongIngredients = wrongIngredients?.concat(arr);
+  function getIngredient() {
+    for (
+      let i = Math.ceil(Math.random() * potions.length);
+      i < potions.length;
+      i += 1
+    ) {
+      const arr = potions[i]?.attributes.ingredients.split(",");
+      wrongIngredients = wrongIngredients?.concat(arr);
+    }
+    return wrongIngredients;
   }
+  const wrongList = useMemo(
+    () => getIngredient(wrongIngredients),
+    ingredientsPotion
+  );
 
   const allIngredients = ingredientsPotion?.concat(
-    wrongIngredients.slice(0, 10 - ingredientsPotion.length)
+    wrongList.slice(0, 10 - ingredientsPotion.length)
   );
+
+  console.info(wrongList);
+
   allIngredients?.sort();
 
+  console.info(allIngredients);
+
   const [imgIngredient, setImgIngredient] = useState(ingtransp);
+
   const [bg, setBg] = useState("bgTrue");
+
   return (
     <div id="bg" className="h-screen w-full flex justify:center ">
       <div
@@ -102,10 +118,10 @@ function Jeu() {
             </div>
           </div>
         </div>
-        <span className="w-3/6 h-3/6 ">
+        <span className="w-full h-3/6 ">
           <Chaudron bg={bg} />
         </span>
-        <div className=" flex flex-wrap justify-center pt-6 ">
+        <div className=" flex flex-wrap justify-center  ">
           {allIngredients?.map((ingredient) => (
             <div
               key={ingredient}
