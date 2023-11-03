@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function Contact({ closeModal }) {
   return (
     <section className="mx-auto w-screen px-5 py-16">
-      <section className="mx-auto max-w-xl bg-purple-heart-400 px-8 pb-12 pt-2 text-center rounded-xl">
+      <section className="mx-auto max-w-xl bg-purple-heart-100 px-8 pb-12 pt-2 text-center rounded-xl text-sm text-[#636262]">
         <button
           className="text-[#636262] text-2xl"
           type="button"
@@ -46,7 +46,7 @@ function Contact({ closeModal }) {
                 />
               </div>
             </div>
-            <div className="mb-4">
+            <div className="mb-4 text-center">
               <label htmlFor="field" className="mb-1 font-medium">
                 Email
               </label>
@@ -55,7 +55,7 @@ function Contact({ closeModal }) {
                 className="mb-4 block h-9 w-full rounded-md border border-solid border-black px-3 py-6 text-sm text-[#333333]"
               />
             </div>
-            <div className="mb-5 md:mb-6 lg:mb-8">
+            <div className="mb-5 md:mb-6 lg:mb-8 text-center">
               <label htmlFor="field" className="mb-1 font-medium">
                 Message
               </label>
@@ -85,7 +85,7 @@ function Contact({ closeModal }) {
             <input
               type="submit"
               value="Submit your message"
-              className="inline-block w-full cursor-pointer bg-black px-6 py-3 text-center font-semibold text-white"
+              className="mt-4 inline-block w-full cursor-pointer items-center rounded-md bg-purple-heart-500 px-6 py-3 text-center font-semibold text-white"
             />
           </form>
         </div>
