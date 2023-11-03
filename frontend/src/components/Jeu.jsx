@@ -49,6 +49,7 @@ function Jeu() {
   console.info(allIngredients);
 
   const [imgIngredient, setImgIngredient] = useState(ingtransp);
+  const [imgIngredientClass, setImgIngredientClass] = useState("");
 
   const [bg, setBg] = useState("bgTrue");
 
@@ -87,7 +88,7 @@ function Jeu() {
               <p>{potions[0]?.attributes.effect} </p>
             </span>
           </div>
-          <span className="w-3/6 h-3/6 ">
+          <span className={imgIngredientClass}>
             <img src={imgIngredient} alt={imgIngredient} />
           </span>
           <div
@@ -132,6 +133,7 @@ function Jeu() {
                 ingredientsPotion={ingredientsPotion}
                 setImgIngredient={setImgIngredient}
                 setBg={setBg}
+                setImgIngredientClass={setImgIngredientClass}
               />
             </div>
           ))}

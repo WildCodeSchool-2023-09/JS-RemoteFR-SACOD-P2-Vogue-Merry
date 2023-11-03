@@ -333,15 +333,20 @@ footer {
   }
 }
 .imgIngredient {
-  margin-left: 1rem;
   animation-name: slideIn;
-  animation-duration: 4s;
+  transition: all linear;
+  animation-duration: 6s;
   @keyframes slideIn {
     0% {
-      transform: translate(0px, -300px);
+      transform: translate(0px, 0px);
     }
+    50% {
+      transform: translate(0px, 265px);
+      transition-delay: 0s;
+    }
+
     100% {
-      transform: translate(0px, 150px);
+      opacity: 0;
     }
   }
 }

@@ -7,6 +7,7 @@ function Ingredients({
   setImgIngredient,
   ingtransp,
   setBg,
+  setImgIngredientClass,
 }) {
   const isTrue = () => {
     function returnToTrueAnimation() {
@@ -15,6 +16,7 @@ function Ingredients({
 
     function toInvisibleImg() {
       setImgIngredient(ingtransp);
+      setImgIngredientClass("");
     }
 
     const endAnimation = () => {
@@ -22,7 +24,7 @@ function Ingredients({
     };
 
     const endImgIngredient = () => {
-      setTimeout(toInvisibleImg, 2500);
+      setTimeout(toInvisibleImg, 3000);
     };
 
     if (ingredientsPotion.includes(ingredient) !== true) {
@@ -30,6 +32,7 @@ function Ingredients({
       endAnimation();
     } else {
       setImgIngredient(ingredientImg);
+      setImgIngredientClass("imgIngredient");
       endImgIngredient();
     }
   };
@@ -51,5 +54,6 @@ Ingredients.propTypes = {
   setImgIngredient: PropTypes.func.isRequired,
   ingtransp: PropTypes.string.isRequired,
   setBg: PropTypes.func.isRequired,
+  setImgIngredientClass: PropTypes.string.isRequired,
 };
 export default Ingredients;
