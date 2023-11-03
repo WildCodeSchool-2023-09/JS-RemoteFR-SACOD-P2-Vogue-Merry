@@ -1,8 +1,10 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import PV from "../assets/f7dfdf45.png";
 import Ingredients from "./Ingredients";
 import "../App.scss";
+import ingtransp from "../assets/ingredienttransp.png";
+import Chaudron from "./chaudron";
 
 function Jeu() {
   const [potions, setPotions] = useState([]);
@@ -18,23 +20,41 @@ function Jeu() {
   }, []);
 
   const ingredientsPotion = potions[0]?.attributes.ingredients.split(",");
-  const random = Math.ceil(Math.random() * potions.length);
 
   let wrongIngredients = [];
-
-  for (let i = random; i < potions.length; i += 1) {
-    const arr = potions[i]?.attributes.ingredients.split(",");
-    wrongIngredients = wrongIngredients?.concat(arr);
+  function getIngredient() {
+    for (
+      let i = Math.ceil(Math.random() * potions.length);
+      i < potions.length;
+      i += 1
+    ) {
+      const arr = potions[i]?.attributes.ingredients.split(",");
+      wrongIngredients = wrongIngredients?.concat(arr);
+    }
+    return wrongIngredients;
   }
+  const wrongList = useMemo(
+    () => getIngredient(wrongIngredients),
+    ingredientsPotion
+  );
 
   const allIngredients = ingredientsPotion?.concat(
-    wrongIngredients.slice(0, 10 - ingredientsPotion.length)
+    wrongList.slice(0, 10 - ingredientsPotion.length)
   );
+
+  console.info(wrongList);
+
   allIngredients?.sort();
-  const [animation, setAnimation] = useState("bg");
+
+  console.info(allIngredients);
+
+  const [imgIngredient, setImgIngredient] = useState(ingtransp);
+  const [imgIngredientClass, setImgIngredientClass] = useState("");
+
+  const [bg, setBg] = useState("bgTrue");
 
   return (
-    <div id={animation} className="h-screen w-full flex justify:center ">
+    <div id="bg" className="h-screen w-full flex justify:center ">
       <div
         className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
       "
@@ -45,18 +65,18 @@ function Jeu() {
           </h2>
         </div>
         <div
-          className="flex justify-between w-5/6 p-3 max-sm:w-full max-sm:h-48 items-center
+          className="flex justify-between w-5/6  p-3 max-sm:w-full max-sm:h-48 items-center
   
         "
         >
           <div
-            className="bg-[url('./assets/parch.png')] bg-no-repeat h-96 w-80 p-10 flex flex-col  items-center gap-4
+            className="bg-[url('./assets/parch.png')] bg-no-repeat h-72 w-80  flex flex-col  items-center justify-center
           max-sm:w-2/6 max-sm:h-28 max-sm:bg-cover max-sm:p-0  max-sm:gap-0 "
           >
             <img
               src={potions[0]?.attributes.image}
               alt="potion"
-              className="w-10 h-10 mt-8 max-sm:w-6 max-sm:h-6 max-sm:mt-4"
+              className="w-14 h-12  max-sm:w-6 max-sm:h-6 "
             />
             <span
               className="w-26 text-white text-center font-irish flex flex-col
@@ -68,6 +88,9 @@ function Jeu() {
               <p>{potions[0]?.attributes.effect} </p>
             </span>
           </div>
+          <span className={imgIngredientClass}>
+            <img src={imgIngredient} alt={imgIngredient} />
+          </span>
           <div
             className="text-white h-48 w-72 p-10 rounded-2xl bg-purple-heart-500 flex flex-col  gap-10 justify-center
           max-sm:w-28 max-sm:h-16 max-sm:p-0 max-sm:gap-0 align-middle"
@@ -96,7 +119,10 @@ function Jeu() {
             </div>
           </div>
         </div>
-        <div className=" flex flex-wrap justify-center pt-6 ">
+        <span className="w-full h-3/6 ">
+          <Chaudron bg={bg} />
+        </span>
+        <div className=" flex flex-wrap justify-center  ">
           {allIngredients?.map((ingredient) => (
             <div
               key={ingredient}
@@ -105,7 +131,9 @@ function Jeu() {
               <Ingredients
                 ingredient={ingredient}
                 ingredientsPotion={ingredientsPotion}
-                setAnimation={setAnimation}
+                setImgIngredient={setImgIngredient}
+                setBg={setBg}
+                setImgIngredientClass={setImgIngredientClass}
               />
             </div>
           ))}
