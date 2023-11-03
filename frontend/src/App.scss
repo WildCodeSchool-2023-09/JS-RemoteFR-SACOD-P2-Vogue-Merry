@@ -191,7 +191,43 @@ footer {
     flex-direction: column;
   }
 }
-
+.buttonContact {
+  border-color: black;
+  padding: 0.1vw 2vw 0.1vw 2vw;
+  margin-left: 2rem;
+  font-family: Montserrat;
+  border-radius: 2rem;
+  border-width: 2px;
+  background-color: #9666d1;
+  margin-bottom: 0;
+  &:hover {
+    background-color: #d9c8ee;
+    color: black;
+  }
+}
+.buttonLogin {
+  border-color: black;
+  padding: 0.1vw 2vw 0.1vw 2vw;
+  margin-left: 2rem;
+  font-family: Montserrat;
+  border-radius: 2rem;
+  border-width: 2px;
+  background-color: #9666d1;
+  margin-bottom: 0;
+  &:hover {
+    background-color: #d9c8ee;
+    color: black;
+  }
+}
+.blur-background {
+  backdrop-filter: blur(15rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}
 .levelButton {
   display: flex;
   flex-direction: column;
@@ -201,7 +237,8 @@ footer {
     border-width: 6px;
     background-color: #9666d1;
     border-color: #6e28c3;
-    padding: 0.5vw 10vw 0.5vw 10vw;
+    padding: 1rem;
+    width: clamp(200px, 30vw, 40rem);
     color: white;
     -webkit-text-stroke: 1.5px black;
     font-size: 2.5rem;
@@ -267,4 +304,21 @@ footer {
       max-width: 90%;
     }
   }
+}
+#bg {
+  background-image: url("./assets/potionclassroom-animation-ok.gif");
+  @media screen and (max-width: 450px) {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+#bgFalse {
+  background-image: url("./assets/potionclassroom-animation-false.gif");
+  @media screen and (max-width: 450px) {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+.bonus {
+  justify-content: center;
 }
