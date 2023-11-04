@@ -1,13 +1,39 @@
 import PropTypes from "prop-types";
+import ingredientImg from "../assets/ingredient.png";
 
-function Ingredients({ ingredient, ingredientsPotion, setAnimation }) {
-  function returnToTrueAnimation() {
-    setAnimation("bg");
-  }
+function Ingredients({
+  ingredient,
+  ingredientsPotion,
+  setImgIngredient,
+  ingtransp,
+  setBg,
+  setImgIngredientClass,
+}) {
   const isTrue = () => {
-    if (ingredientsPotion.includes(ingredient) !== true) {
-      setAnimation("bgFalse");
+    function returnToTrueAnimation() {
+      setBg("bgTrue");
+    }
+
+    function toInvisibleImg() {
+      setImgIngredient(ingtransp);
+      setImgIngredientClass("");
+    }
+
+    const endAnimation = () => {
       setTimeout(returnToTrueAnimation, 3000);
+    };
+
+    const endImgIngredient = () => {
+      setTimeout(toInvisibleImg, 3000);
+    };
+
+    if (ingredientsPotion.includes(ingredient) !== true) {
+      setBg("bgFalse");
+      endAnimation();
+    } else {
+      setImgIngredient(ingredientImg);
+      setImgIngredientClass("imgIngredient");
+      endImgIngredient();
     }
   };
 
@@ -15,7 +41,7 @@ function Ingredients({ ingredient, ingredientsPotion, setAnimation }) {
     <button
       type="button"
       className="flex text-white font-irish w-full h-full justify-center items-center "
-      onClick={isTrue}
+      onClick={() => isTrue()}
     >
       {ingredient}
     </button>
@@ -25,6 +51,9 @@ function Ingredients({ ingredient, ingredientsPotion, setAnimation }) {
 Ingredients.propTypes = {
   ingredient: PropTypes.string.isRequired,
   ingredientsPotion: PropTypes.isRequired,
-  setAnimation: PropTypes.func.isRequired,
+  setImgIngredient: PropTypes.func.isRequired,
+  ingtransp: PropTypes.string.isRequired,
+  setBg: PropTypes.func.isRequired,
+  setImgIngredientClass: PropTypes.string.isRequired,
 };
 export default Ingredients;
