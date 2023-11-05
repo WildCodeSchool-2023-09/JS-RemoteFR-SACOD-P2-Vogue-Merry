@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Login from "./Modal/Login";
 
 function Footer() {
@@ -16,9 +17,14 @@ function Footer() {
         Login
       </button>
       {openModal && (
-        <div className="blur-background flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="blur-background flex items-center justify-center"
+        >
           <Login closeModal={() => setOpenModal(false)} />
-        </div>
+        </motion.div>
       )}
     </footer>
   );
