@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
 import Trophy from "../components/Trophy";
 import "./leaderboard.scss";
 
 function Leaderboard() {
+  const delayAnimation = 0.1;
   return (
     <div className="onglet-leaderboard">
       <div className="p-4 flex justify-center">
@@ -36,35 +38,86 @@ function Leaderboard() {
           La suite du Top
         </h1>
       </div>
-      <div className="my-4 flex justify-center">
-        <div className="reste-leaderboard max-w-sm md:max-w-2xl flex-1 gap-4">
-          <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl"> </div>
-          <div className="w-full bg-purple-heart-400 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat">
-            999999
-          </div>
-          <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl"> </div>
-          <div className="w-11/12 bg-purple-heart-500 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat">
-            99999
-          </div>
-          <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl"> </div>
-          <div className="w-10/12 bg-purple-heart-400 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat">
-            9999
-          </div>
-          <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl"> </div>
-          <div className="w-7/12 bg-purple-heart-500 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat">
-            7777
-          </div>
-          <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl"> </div>
-          <div className="w-5/12 bg-purple-heart-400 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat">
-            6666
-          </div>
-          <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl"> </div>
-          <div className="w-4/12 bg-purple-heart-500 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat">
-            5555
-          </div>
-          <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl"> </div>
-          <div className="w-2/12 bg-purple-heart-400 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat">
-            4444
+      <div>
+        <div className="my-4 flex justify-center">
+          <div className="reste-leaderboard max-w-sm md:max-w-2xl flex-1 gap-4">
+            <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl">
+              {" "}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "100%" }}
+              transition={{ delay: 0 }}
+              className="w-full bg-purple-heart-400 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat"
+            >
+              999999
+            </motion.div>
+            <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl">
+              {" "}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "91%" }}
+              transition={{ delay: delayAnimation }}
+              className="w-11/12 bg-purple-heart-500 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat"
+            >
+              99999
+            </motion.div>
+            <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl">
+              {" "}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "83%" }}
+              transition={{ delay: delayAnimation * 2 }}
+              className="w-10/12 bg-purple-heart-400 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat"
+            >
+              9999
+            </motion.div>
+            <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl">
+              {" "}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "58%" }}
+              transition={{ delay: delayAnimation * 3 }}
+              className="w-7/12 bg-purple-heart-500 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat"
+            >
+              7777
+            </motion.div>
+            <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl">
+              {" "}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "41%" }}
+              transition={{ delay: delayAnimation * 4 }}
+              className="w-5/12 bg-purple-heart-400 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat"
+            >
+              6666
+            </motion.div>
+            <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl">
+              {" "}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "33%" }}
+              transition={{ delay: delayAnimation * 5 }}
+              className="w-4/12 bg-purple-heart-500 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat"
+            >
+              5555
+            </motion.div>
+            <div className="w-full bg-black h-16 shadow-xl rounded-l-3xl">
+              {" "}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "16%" }}
+              transition={{ delay: delayAnimation * 6 }}
+              className="w-2/12 bg-purple-heart-400 h-16 rounded-r-3xl shadow-xl flex items-center pl-4 font-bold text-white font-montserrat"
+            >
+              4444
+            </motion.div>
           </div>
         </div>
       </div>
