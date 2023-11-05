@@ -54,6 +54,6 @@ Ingredients.propTypes = {
   setImgIngredient: PropTypes.func.isRequired,
   ingtransp: PropTypes.string.isRequired,
   setBg: PropTypes.func.isRequired,
-  setImgIngredientClass: PropTypes.string.isRequired,
+  setImgIngredientClass: PropTypes.func.isRequired,
 };
 export default Ingredients;

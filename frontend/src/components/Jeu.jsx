@@ -54,7 +54,7 @@ function Jeu() {
   const [bg, setBg] = useState("bgTrue");
 
   return (
-    <div id="bg" className="h-screen w-full flex justify:center ">
+    <div id="bg" className="w-full flex justify:center ">
       <div
         className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
       "

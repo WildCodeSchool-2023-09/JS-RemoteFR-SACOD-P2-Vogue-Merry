@@ -3,7 +3,7 @@ import "./leaderboard.scss";
 
 function Leaderboard() {
   return (
-    <>
+    <div className="onglet-leaderboard">
       <div className="p-4 flex justify-center">
         <div className="grid grid-cols-3 text-center h-52 items-end justify-center flex-grow max-w-2xl">
           <div className="h-full flex flex-col justify-end">
@@ -68,7 +68,7 @@ function Leaderboard() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
