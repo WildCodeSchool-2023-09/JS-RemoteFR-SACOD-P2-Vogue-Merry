@@ -1,8 +1,14 @@
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 
 function Card({ name, image, effect, ingredients }) {
   return (
-    <div className="container-elixir bg-purple-800 grid text-white w-72 h-96 rounded-2xl p-4">
+    <motion.div
+      animate={{ opacity: 1, scale: 1 }}
+      initial={{ initial: 0, scale: 0 }}
+      exit={{ opacity: 0, scale: 0 }}
+      className="container-elixir bg-purple-800 grid text-white w-72 h-96 rounded-2xl p-4"
+    >
       <div className="grid bg-purple-heart-400 rounded-xl h-44">
         <h1 className="text-xl font-irish text-center">{name}</h1>
         <div className="flex justify-center">
@@ -25,7 +31,7 @@ function Card({ name, image, effect, ingredients }) {
       <p className="overflow-auto ingredients">
         {ingredients || "Not known yet"}
       </p>
-    </div>
+    </motion.div>
   );
 }
 
