@@ -197,6 +197,20 @@ footer {
     font-size: 0.5rem;
   }
 }
+.buttonContact {
+  border-color: black;
+  padding: 0.1vw 2vw 0.1vw 2vw;
+  margin-left: 2rem;
+  font-family: Montserrat;
+  border-radius: 2rem;
+  border-width: 2px;
+  background-color: #9666d1;
+  margin-bottom: 0;
+  &:hover {
+    background-color: #d9c8ee;
+    color: black;
+  }
+}
 .buttonLogin {
   border-color: black;
   padding: 0.1vw 2vw 0.1vw 2vw;
@@ -350,4 +364,7 @@ footer {
       opacity: 0;
     }
   }
+}
+.bonus {
+  justify-content: center;
 }
