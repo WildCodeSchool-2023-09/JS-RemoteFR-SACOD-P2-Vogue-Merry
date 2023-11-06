@@ -49,12 +49,17 @@ function Jeu() {
   console.info(allIngredients);
 
   const [imgIngredient, setImgIngredient] = useState(ingtransp);
+
   const [imgIngredientClass, setImgIngredientClass] = useState("");
 
   const [bg, setBg] = useState("bgTrue");
 
+  const [score, setScore] = useState(0);
+
+  const gainScore = 100 / ingredientsPotion.length;
+
   return (
-    <div id="bg" className="h-screen w-full flex justify:center ">
+    <div id="bg" className="w-full flex justify:center ">
       <div
         className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
       "
@@ -115,7 +120,7 @@ function Jeu() {
             </div>
             <div className="flex flex-row justify-around max-sm:justify-center">
               <h3 className="font-irish">Score </h3>
-              <h4 className="font-irish">.../100</h4>
+              <h4 className="font-irish">{score}/200</h4>
             </div>
           </div>
         </div>
@@ -134,6 +139,9 @@ function Jeu() {
                 setImgIngredient={setImgIngredient}
                 setBg={setBg}
                 setImgIngredientClass={setImgIngredientClass}
+                score={score}
+                setScore={setScore}
+                gainScore={gainScore}
               />
             </div>
           ))}
