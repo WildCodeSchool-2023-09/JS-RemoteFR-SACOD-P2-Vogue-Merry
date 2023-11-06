@@ -104,6 +104,7 @@ function OngletElixir() {
                   setBtnIndex(index);
                 }}
               >
+                {}
                 <Card
                   key={element.id}
                   name={element.attributes.name}
