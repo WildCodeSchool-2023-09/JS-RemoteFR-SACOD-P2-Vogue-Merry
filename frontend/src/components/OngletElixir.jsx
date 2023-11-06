@@ -4,11 +4,14 @@ import { AnimatePresence } from "framer-motion";
 import searchIcon from "../assets/search.svg";
 import Card from "./Card";
 import loadingIcon from "../assets/loading.svg";
+import CardModal from "./Modal/CardModal";
 
 function OngletElixir() {
   const [elixir, setElixir] = useState();
   const [searchValue, setSearchValue] = useState("");
   const [difficulty, setDifficulty] = useState(null);
+  const [openCard, setOpenCard] = useState(false);
+  const [btnIndex, setBtnIndex] = useState();
 
   function handleDifficulty(value) {
     setDifficulty(value);
@@ -86,22 +89,43 @@ function OngletElixir() {
           Hard
         </button>
       </div>
-      <div className="liste-elixir flex flex-wrap gap-10 justify-center">
+      <div className="liste-elixir flex flex-wrap gap-10 max-sm:gap-2 justify-center">
         <AnimatePresence>
           {elixir
             .filter((element) =>
               element.attributes.name.toLowerCase().includes(searchValue)
             )
-            .map((element) => (
-              <Card
+            .map((element, index) => (
+              <button
                 key={element.id}
-                name={element.attributes.name}
-                image={element.attributes.image}
-                effect={element.attributes.effect}
-                ingredients={element.attributes.ingredients}
-              />
+                type="button"
+                onClick={() => {
+                  setOpenCard(true);
+                  setBtnIndex(index);
+                }}
+              >
+                <Card
+                  key={element.id}
+                  name={element.attributes.name}
+                  image={element.attributes.image}
+                  effect={element.attributes.effect}
+                  ingredients={element.attributes.ingredients}
+                />
+              </button>
             ))}
         </AnimatePresence>
+        {openCard && (
+          <div className="blur-background flex items-center justify-center">
+            <CardModal
+              key={elixir[btnIndex].id}
+              name={elixir[btnIndex].attributes.name}
+              image={elixir[btnIndex].attributes.image}
+              effect={elixir[btnIndex].attributes.effect}
+              ingredients={elixir[btnIndex].attributes.ingredients}
+              closeModal={setOpenCard}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
