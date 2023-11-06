@@ -8,6 +8,9 @@ function Ingredients({
   ingtransp,
   setBg,
   setImgIngredientClass,
+  setScore,
+  score,
+  gainScore,
 }) {
   const isTrue = () => {
     function returnToTrueAnimation() {
@@ -33,6 +36,7 @@ function Ingredients({
     } else {
       setImgIngredient(ingredientImg);
       setImgIngredientClass("imgIngredient");
+      setScore(score + gainScore);
       endImgIngredient();
     }
   };
@@ -55,5 +59,8 @@ Ingredients.propTypes = {
   ingtransp: PropTypes.string.isRequired,
   setBg: PropTypes.func.isRequired,
   setImgIngredientClass: PropTypes.func.isRequired,
+  setScore: PropTypes.number.isRequired,
+  gainScore: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
 };
 export default Ingredients;
