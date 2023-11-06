@@ -42,8 +42,6 @@ function Jeu() {
     wrongList.slice(0, 10 - ingredientsPotion.length)
   );
 
-  console.info(wrongList);
-
   allIngredients?.sort();
 
   console.info(allIngredients);
@@ -55,8 +53,8 @@ function Jeu() {
   const [bg, setBg] = useState("bgTrue");
 
   const [score, setScore] = useState(0);
-
-  const gainScore = 100 / ingredientsPotion.length;
+  const length = ingredientsPotion?.length;
+  const gainScore = 100 / length;
 
   return (
     <div id="bg" className="w-full flex justify:center ">
