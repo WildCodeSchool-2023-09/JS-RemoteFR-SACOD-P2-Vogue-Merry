@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { AnimatePresence } from "framer-motion";
 import searchIcon from "../assets/search.svg";
 import Card from "./Card";
 import loadingIcon from "../assets/loading.svg";
@@ -86,19 +87,21 @@ function OngletElixir() {
         </button>
       </div>
       <div className="liste-elixir flex flex-wrap gap-10 justify-center">
-        {elixir
-          .filter((element) =>
-            element.attributes.name.toLowerCase().includes(searchValue)
-          )
-          .map((element) => (
-            <Card
-              key={element.id}
-              name={element.attributes.name}
-              image={element.attributes.image}
-              effect={element.attributes.effect}
-              ingredients={element.attributes.ingredients}
-            />
-          ))}
+        <AnimatePresence>
+          {elixir
+            .filter((element) =>
+              element.attributes.name.toLowerCase().includes(searchValue)
+            )
+            .map((element) => (
+              <Card
+                key={element.id}
+                name={element.attributes.name}
+                image={element.attributes.image}
+                effect={element.attributes.effect}
+                ingredients={element.attributes.ingredients}
+              />
+            ))}
+        </AnimatePresence>
       </div>
     </div>
   );
