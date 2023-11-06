@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import PV from "../assets/f7dfdf45.png";
 import Ingredients from "./Ingredients";
@@ -18,6 +19,18 @@ function Jeu() {
       })
       .catch((err) => console.error(err));
   }, []);
+
+  const { id } = useParams();
+
+  let pvs;
+  if (id === "easy") {
+    pvs = [1, 2, 3, 4];
+  } else if (id === "medium") {
+    pvs = [1, 2, 3];
+  } else {
+    pvs = [1, 2];
+  }
+  const [pV, setPV] = useState(pvs);
 
   const ingredientsPotion = potions[0]?.attributes.ingredients.split(",");
 
@@ -44,8 +57,6 @@ function Jeu() {
 
   allIngredients?.sort();
 
-  console.info(allIngredients);
-
   const [imgIngredient, setImgIngredient] = useState(ingtransp);
 
   const [imgIngredientClass, setImgIngredientClass] = useState("");
@@ -53,8 +64,8 @@ function Jeu() {
   const [bg, setBg] = useState("bgTrue");
 
   const [score, setScore] = useState(0);
-  const length = ingredientsPotion?.length;
-  const gainScore = 100 / length;
+  const Length = ingredientsPotion?.length;
+  const gainScore = 200 / Length;
 
   return (
     <div id="bg" className="w-full flex justify:center ">
@@ -62,10 +73,13 @@ function Jeu() {
         className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
       "
       >
-        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl  w-64 flex justify-center max-sm:w-22 max-sm:h-4">
+        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl  w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-4">
           <h2 className="text-black text-center  text-xl font-irish max-sm:text-xs  ">
             You must make this potion
           </h2>
+          <p className="font-irish text-center">
+            Find {ingredientsPotion?.length} ingredients
+          </p>
         </div>
         <div
           className="flex justify-between w-5/6  p-3 max-sm:w-full max-sm:h-48 items-center
@@ -100,21 +114,15 @@ function Jeu() {
           >
             <div className="flex flex-row justify-around max-sm:justify-center">
               <h3 className="self-center font-irish">PV</h3>
-              <img
-                src={PV}
-                alt="PV"
-                className="w-15 h-12 max-sm:w-6 max-sm:h-6  max-sm:text-xs"
-              />
-              <img
-                src={PV}
-                alt="PV"
-                className="w-15 h-12 max-sm:w-6 max-sm:h-6  max-sm:text-xs"
-              />
-              <img
-                src={PV}
-                alt="PV"
-                className="w-15 h-12 max-sm:w-6 max-sm:h-6  max-sm:text-xs"
-              />
+              {pV?.map((pv) => (
+                <div key={pv}>
+                  <img
+                    src={PV}
+                    alt="PV"
+                    className="w-15 h-12 max-sm:w-6 max-sm:h-6  max-sm:text-xs"
+                  />
+                </div>
+              ))}
             </div>
             <div className="flex flex-row justify-around max-sm:justify-center">
               <h3 className="font-irish">Score </h3>
@@ -140,6 +148,8 @@ function Jeu() {
                 score={score}
                 setScore={setScore}
                 gainScore={gainScore}
+                setPV={setPV}
+                pV={pV}
               />
             </div>
           ))}
