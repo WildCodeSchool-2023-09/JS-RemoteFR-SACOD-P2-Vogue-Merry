@@ -30,7 +30,7 @@ function Footer() {
         </button>
       </div>
       {openContact && (
-        <div className="blur-background">
+        <div className="blur-background flex items-center justify-center">
           <Contact closeModal={setOpenContact} />
         </div>
       )}
