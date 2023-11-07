@@ -73,11 +73,11 @@ function Jeu() {
         className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
       "
       >
-        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl  w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-4">
+        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl  w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-8">
           <h2 className="text-black text-center  text-xl font-irish max-sm:text-xs  ">
             You must make this potion
           </h2>
-          <p className="font-irish text-center">
+          <p className="font-irish text-center max-sm:text-xs">
             Find {ingredientsPotion?.length} ingredients
           </p>
         </div>
@@ -90,7 +90,7 @@ function Jeu() {
             >
               <div
                 className="bg-[url('./assets/parch.png')] bg-no-repeat h-72 w-80  flex flex-col  items-center justify-center
-          max-sm:w-2/6 max-sm:h-28 max-sm:bg-cover max-sm:p-0  max-sm:gap-0 "
+          max-sm:w-2/6 max-sm:h-32 max-sm:bg-cover max-sm:p-0  max-sm:gap-0 "
               >
                 <img
                   src={potions[0]?.attributes.image}
@@ -135,7 +135,7 @@ function Jeu() {
             <span className="w-full h-3/6 ">
               <Chaudron bg={bg} />
             </span>
-            <div className=" flex flex-wrap justify-center  ">
+            <div className=" flex flex-wrap justify-center ">
               {allIngredients?.map((ingredient) => (
                 <div
                   key={ingredient}
@@ -158,8 +158,11 @@ function Jeu() {
             </div>
           </>
         ) : (
-          <p className="text-white font-irish w-5/6 h-3/6 flex justify-center items-center text-7xl">
-            Game Over
+          <p
+            className="text-white font-irish w-5/6 h-3/6 flex justify-center items-center text-7xl
+          max-sm:text-xl max-sm:text-black "
+          >
+            Game Over !!
           </p>
         )}
       </div>
