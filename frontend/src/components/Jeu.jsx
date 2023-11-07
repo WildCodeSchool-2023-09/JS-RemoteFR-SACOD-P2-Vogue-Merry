@@ -23,16 +23,41 @@ function Jeu() {
   const { id } = useParams();
 
   let pvs;
+  let selectedPotions;
+  let random;
   if (id === "easy") {
     pvs = [1, 2, 3, 4];
+    selectedPotions = potions.filter((potion) =>
+      potion?.attributes.difficulty.includes("Beginner")
+    );
+    random = Math.ceil(Math.random() * selectedPotions.length);
   } else if (id === "medium") {
     pvs = [1, 2, 3];
+    const difficulty = ["Advanced", "Modarate"];
+    selectedPotions = potions.filter(
+      (potion) =>
+        difficulty.some((el) => potion?.attributes.difficulty.includes(el)) ===
+        true
+    );
   } else {
     pvs = [1, 2];
+    selectedPotions = potions.filter((potion) =>
+      potion?.attributes.difficulty.includes("Wizard")
+    );
   }
   const [pV, setPV] = useState(pvs);
+  let selectedPotion;
+  function getPotion() {
+    selectedPotion = selectedPotions[random];
+    return selectedPotion;
+  }
 
-  const ingredientsPotion = potions[0]?.attributes.ingredients.split(",");
+  const potionSelected = useMemo(
+    () => getPotion(selectedPotion),
+    selectedPotions
+  );
+
+  const ingredientsPotion = potionSelected?.attributes.ingredients.split(",");
 
   let wrongIngredients = [];
   function getIngredient() {
@@ -93,7 +118,7 @@ function Jeu() {
           max-sm:w-2/6 max-sm:h-32 max-sm:bg-cover max-sm:p-0  max-sm:gap-0 "
               >
                 <img
-                  src={potions[0]?.attributes.image}
+                  src={potionSelected?.attributes.image}
                   alt="potion"
                   className="w-14 h-12  max-sm:w-6 max-sm:h-6 "
                 />
@@ -102,9 +127,9 @@ function Jeu() {
             max-sm:w-18 max-sm:text-xs 
             "
                 >
-                  <p>{potions[0]?.attributes.name}</p>
-                  <p>{potions[0]?.attributes.characteristics}</p>
-                  <p>{potions[0]?.attributes.effect} </p>
+                  <p>{potionSelected?.attributes.name}</p>
+                  <p>{potionSelected?.attributes.characteristics}</p>
+                  <p>{potionSelected?.attributes.effect} </p>
                 </span>
               </div>
               <span className={imgIngredientClass}>
