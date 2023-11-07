@@ -46,16 +46,13 @@ function Jeu() {
     );
   }
   const [pV, setPV] = useState(pvs);
-  let selectedPotion;
+  let selectedPotion = potions[0];
   function getPotion() {
     selectedPotion = selectedPotions[random];
     return selectedPotion;
   }
 
-  const potionSelected = useMemo(
-    () => getPotion(selectedPotion),
-    selectedPotions
-  );
+  const potionSelected = useMemo(() => getPotion(selectedPotion), [potions]);
 
   const ingredientsPotion = potionSelected?.attributes.ingredients.split(",");
 
@@ -71,10 +68,7 @@ function Jeu() {
     }
     return wrongIngredients;
   }
-  const wrongList = useMemo(
-    () => getIngredient(wrongIngredients),
-    ingredientsPotion
-  );
+  const wrongList = useMemo(() => getIngredient(wrongIngredients), [potions]);
 
   const allIngredients = ingredientsPotion?.concat(
     wrongList.slice(0, 10 - ingredientsPotion.length)
