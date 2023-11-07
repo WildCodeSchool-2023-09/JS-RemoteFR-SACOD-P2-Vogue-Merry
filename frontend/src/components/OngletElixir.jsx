@@ -13,6 +13,10 @@ function OngletElixir() {
   const [openCard, setOpenCard] = useState(false);
   const [btnIndex, setBtnIndex] = useState();
 
+  function findButtonIndex(objet) {
+    return objet.id === btnIndex;
+  }
+
   function handleDifficulty(value) {
     setDifficulty(value);
   }
@@ -118,40 +122,14 @@ function OngletElixir() {
         {openCard && (
           <div className="blur-background flex items-center justify-center">
             <CardModal
-              key={
-                elixir[
-                  elixir.findIndex(function (objet) {
-                    return objet.id === btnIndex;
-                  })
-                ].id
-              }
-              name={
-                elixir[
-                  elixir.findIndex(function (objet) {
-                    return objet.id === btnIndex;
-                  })
-                ].attributes.name
-              }
-              image={
-                elixir[
-                  elixir.findIndex(function (objet) {
-                    return objet.id === btnIndex;
-                  })
-                ].attributes.image
-              }
+              key={elixir[elixir.findIndex(findButtonIndex)].id}
+              name={elixir[elixir.findIndex(findButtonIndex)].attributes.name}
+              image={elixir[elixir.findIndex(findButtonIndex)].attributes.image}
               effect={
-                elixir[
-                  elixir.findIndex(function (objet) {
-                    return objet.id === btnIndex;
-                  })
-                ].attributes.effect
+                elixir[elixir.findIndex(findButtonIndex)].attributes.effect
               }
               ingredients={
-                elixir[
-                  elixir.findIndex(function (objet) {
-                    return objet.id === btnIndex;
-                  })
-                ].attributes.ingredients
+                elixir[elixir.findIndex(findButtonIndex)].attributes.ingredients
               }
               closeModal={setOpenCard}
             />
