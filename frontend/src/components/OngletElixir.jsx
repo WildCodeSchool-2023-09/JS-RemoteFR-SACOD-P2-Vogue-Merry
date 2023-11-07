@@ -13,6 +13,10 @@ function OngletElixir() {
   const [openCard, setOpenCard] = useState(false);
   const [btnIndex, setBtnIndex] = useState();
 
+  function findButtonIndex(objet) {
+    return objet.id === btnIndex;
+  }
+
   function handleDifficulty(value) {
     setDifficulty(value);
   }
@@ -95,13 +99,13 @@ function OngletElixir() {
             .filter((element) =>
               element.attributes.name.toLowerCase().includes(searchValue)
             )
-            .map((element, index) => (
+            .map((element) => (
               <button
                 key={element.id}
                 type="button"
                 onClick={() => {
                   setOpenCard(true);
-                  setBtnIndex(index);
+                  setBtnIndex(element.id);
                 }}
               >
                 {}
@@ -118,11 +122,15 @@ function OngletElixir() {
         {openCard && (
           <div className="blur-background flex items-center justify-center">
             <CardModal
-              key={elixir[btnIndex].id}
-              name={elixir[btnIndex].attributes.name}
-              image={elixir[btnIndex].attributes.image}
-              effect={elixir[btnIndex].attributes.effect}
-              ingredients={elixir[btnIndex].attributes.ingredients}
+              key={elixir[elixir.findIndex(findButtonIndex)].id}
+              name={elixir[elixir.findIndex(findButtonIndex)].attributes.name}
+              image={elixir[elixir.findIndex(findButtonIndex)].attributes.image}
+              effect={
+                elixir[elixir.findIndex(findButtonIndex)].attributes.effect
+              }
+              ingredients={
+                elixir[elixir.findIndex(findButtonIndex)].attributes.ingredients
+              }
               closeModal={setOpenCard}
             />
           </div>

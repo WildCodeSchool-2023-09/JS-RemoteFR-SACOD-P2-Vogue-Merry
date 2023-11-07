@@ -5,7 +5,7 @@ function CardModal({ name, image, effect, ingredients, closeModal }) {
   return (
     <>
       <button
-        className="text-[#636262] text-2xl -translate-y-52 translate-x-32 absolute"
+        className="text-[#636262] text-2xl text-white -translate-y-52 translate-x-32 absolute"
         type="button"
         onClick={() => closeModal(false)}
       >
@@ -13,7 +13,6 @@ function CardModal({ name, image, effect, ingredients, closeModal }) {
       </button>
       <motion.div
         initial="hidden"
-        exit="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={{
