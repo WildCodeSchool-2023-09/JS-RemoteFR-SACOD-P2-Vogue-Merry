@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 import searchIcon from "../assets/search.svg";
 import Card from "./Card";
 import loadingIcon from "../assets/loading.svg";
@@ -93,32 +93,37 @@ function OngletElixir() {
           Hard
         </button>
       </div>
-      <div className="liste-elixir flex flex-wrap gap-10 max-sm:gap-2 justify-center">
-        <AnimatePresence>
-          {elixir
-            .filter((element) =>
-              element.attributes.name.toLowerCase().includes(searchValue)
-            )
-            .map((element) => (
-              <button
-                key={element.id}
-                type="button"
-                onClick={() => {
-                  setOpenCard(true);
-                  setBtnIndex(element.id);
-                }}
-              >
-                {}
-                <Card
+      <motion.div
+        layout
+        className="liste-elixir flex flex-wrap gap-10 max-sm:gap-2 justify-center"
+      >
+        <LayoutGroup>
+          <AnimatePresence>
+            {elixir
+              .filter((element) =>
+                element.attributes.name.toLowerCase().includes(searchValue)
+              )
+              .map((element) => (
+                <button
                   key={element.id}
-                  name={element.attributes.name}
-                  image={element.attributes.image}
-                  effect={element.attributes.effect}
-                  ingredients={element.attributes.ingredients}
-                />
-              </button>
-            ))}
-        </AnimatePresence>
+                  type="button"
+                  onClick={() => {
+                    setOpenCard(true);
+                    setBtnIndex(element.id);
+                  }}
+                >
+                  {}
+                  <Card
+                    key={element.id}
+                    name={element.attributes.name}
+                    image={element.attributes.image}
+                    effect={element.attributes.effect}
+                    ingredients={element.attributes.ingredients}
+                  />
+                </button>
+              ))}
+          </AnimatePresence>
+        </LayoutGroup>
         {openCard && (
           <div className="blur-background flex items-center justify-center">
             <CardModal
@@ -135,7 +140,7 @@ function OngletElixir() {
             />
           </div>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

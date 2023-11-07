@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import PV from "../assets/f7dfdf45.png";
 import Ingredients from "./Ingredients";
+import Victory from "./Victory";
 import "../App.scss";
 import ingtransp from "../assets/ingredienttransp.png";
 import Chaudron from "./chaudron";
@@ -158,12 +159,12 @@ function Jeu() {
             </div>
           </>
         ) : (
-          <p
+          <div
             className="text-white font-irish w-5/6 h-3/6 flex justify-center items-center text-7xl
-          max-sm:text-xl max-sm:text-black "
+          max-sm:text-xl max-sm:text-black"
           >
-            {score === 200 ? "Victory" : "Game Over !!"}
-          </p>
+            {score === 200 ? <Victory result /> : <Victory result={false} />}
+          </div>
         )}
       </div>
     </div>

@@ -3,15 +3,17 @@ import PropTypes from "prop-types";
 function Contact({ closeModal }) {
   return (
     <section className="mx-auto w-screen px-5 py-16">
-      <section className="mx-auto max-w-xl bg-purple-heart-100 px-8 pb-12 pt-2 text-center rounded-xl text-sm text-[#636262]">
-        <button
-          className="text-[#636262] text-2xl"
-          type="button"
-          onClick={() => closeModal(false)}
-        >
-          <p> X </p>
-        </button>
-        <div className="mx-auto max-w-7xl px-5 py-16 text-center md:px-10 md:py-2 lg:py-2">
+      <section className="mx-auto max-w-xl bg-purple-heart-100 px-2 pb-12 pt-2 text-center rounded-xl text-sm text-[#636262]">
+        <div className="flex justify-end pr-4">
+          <button
+            className="text-[#636262] text-2xl font-bold"
+            type="button"
+            onClick={() => closeModal(false)}
+          >
+            <p> X </p>
+          </button>
+        </div>
+        <div className="mx-auto max-w-7xl px-5 py-2 text-center md:px-10 md:py-2 lg:py-2">
           <h2 className="text-3xl font-bold md:text-5xl">Contact Form</h2>
           <p className="mx-auto mb-8 mt-4 max-w-lg text-[#636262] md:mb-12 lg:mb-16">
             Lorem ipsum dolor sit amet consectetur adipiscing elit ut
