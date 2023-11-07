@@ -81,7 +81,7 @@ function Jeu() {
             Find {ingredientsPotion?.length} ingredients
           </p>
         </div>
-        {pV.length !== 0 ? (
+        {pV.length !== 0 && score !== 200 ? (
           <>
             <div
               className="flex justify-between w-5/6  p-3 max-sm:w-full max-sm:h-48 items-center
@@ -162,7 +162,7 @@ function Jeu() {
             className="text-white font-irish w-5/6 h-3/6 flex justify-center items-center text-7xl
           max-sm:text-xl max-sm:text-black "
           >
-            Game Over !!
+            {score === 200 ? "Victory" : "Game Over !!"}
           </p>
         )}
       </div>
