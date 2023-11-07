@@ -30,10 +30,12 @@ function Card({ name, image, effect, ingredients }) {
           )}
         </div>
       </div>
-      <p className="font-extrabold max-sm:hidden">Effect:</p>
-      <p className="max-sm:hidden">{effect || "No effect or unknown"}</p>
-      <p className="font-extrabold max-sm:hidden">Ingedients</p>
-      <p className="overflow-auto ingredients max-sm:hidden">
+      <p className="font-extrabold text-left max-sm:hidden">Effect:</p>
+      <p className="max-sm:hidden text-left">
+        {effect || "No effect or unknown"}
+      </p>
+      <p className="font-extrabold text-left max-sm:hidden">Ingedients</p>
+      <p className="overflow-auto ingredients text-left max-sm:hidden">
         {ingredients || "Not known yet"}
       </p>
     </motion.div>

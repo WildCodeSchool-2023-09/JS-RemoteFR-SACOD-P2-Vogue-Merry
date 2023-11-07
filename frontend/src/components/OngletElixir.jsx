@@ -95,13 +95,13 @@ function OngletElixir() {
             .filter((element) =>
               element.attributes.name.toLowerCase().includes(searchValue)
             )
-            .map((element, index) => (
+            .map((element) => (
               <button
                 key={element.id}
                 type="button"
                 onClick={() => {
                   setOpenCard(true);
-                  setBtnIndex(index);
+                  setBtnIndex(element.id);
                 }}
               >
                 {}
@@ -118,11 +118,41 @@ function OngletElixir() {
         {openCard && (
           <div className="blur-background flex items-center justify-center">
             <CardModal
-              key={elixir[btnIndex].id}
-              name={elixir[btnIndex].attributes.name}
-              image={elixir[btnIndex].attributes.image}
-              effect={elixir[btnIndex].attributes.effect}
-              ingredients={elixir[btnIndex].attributes.ingredients}
+              key={
+                elixir[
+                  elixir.findIndex(function (objet) {
+                    return objet.id === btnIndex;
+                  })
+                ].id
+              }
+              name={
+                elixir[
+                  elixir.findIndex(function (objet) {
+                    return objet.id === btnIndex;
+                  })
+                ].attributes.name
+              }
+              image={
+                elixir[
+                  elixir.findIndex(function (objet) {
+                    return objet.id === btnIndex;
+                  })
+                ].attributes.image
+              }
+              effect={
+                elixir[
+                  elixir.findIndex(function (objet) {
+                    return objet.id === btnIndex;
+                  })
+                ].attributes.effect
+              }
+              ingredients={
+                elixir[
+                  elixir.findIndex(function (objet) {
+                    return objet.id === btnIndex;
+                  })
+                ].attributes.ingredients
+              }
               closeModal={setOpenCard}
             />
           </div>
