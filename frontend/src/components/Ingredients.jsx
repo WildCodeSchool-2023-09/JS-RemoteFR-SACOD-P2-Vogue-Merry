@@ -11,6 +11,8 @@ function Ingredients({
   setScore,
   score,
   gainScore,
+  setPV,
+  pV,
 }) {
   const isTrue = () => {
     function returnToTrueAnimation() {
@@ -33,6 +35,8 @@ function Ingredients({
     if (ingredientsPotion.includes(ingredient) !== true) {
       setBg("bgFalse");
       endAnimation();
+      setPV(pV?.splice(1));
+      console.info(pV);
     } else {
       setImgIngredient(ingredientImg);
       setImgIngredientClass("imgIngredient");
@@ -56,11 +60,13 @@ Ingredients.propTypes = {
   ingredient: PropTypes.string.isRequired,
   ingredientsPotion: PropTypes.isRequired,
   setImgIngredient: PropTypes.func.isRequired,
-  ingtransp: PropTypes.string.isRequired,
+  ingtransp: PropTypes.func.isRequired,
   setBg: PropTypes.func.isRequired,
   setImgIngredientClass: PropTypes.func.isRequired,
-  setScore: PropTypes.number.isRequired,
+  setScore: PropTypes.func.isRequired,
   gainScore: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
+  setPV: PropTypes.func.isRequired,
+  pV: PropTypes.func.isRequired,
 };
 export default Ingredients;
