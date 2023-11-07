@@ -312,7 +312,7 @@ footer {
   }
 }
 #bg {
-  min-height: 88vh;
+  height: 100vh;
   background-image: url("./assets/potionclassroom.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -324,7 +324,7 @@ footer {
 #bgTrue {
   text-align: center;
   width: 100%;
-  height: 25vw;
+  height: 130%;
   background-image: url("./assets/potionclassroom-animation-ok.gif");
   background-size: contain;
   background-position: center;
@@ -337,7 +337,7 @@ footer {
 #bgFalse {
   text-align: center;
   width: 100%;
-  height: 25vw;
+  height: 130%;
   background-image: url("./assets/potionclassroom-animation-false.gif");
   background-size: contain;
   background-position: center;
