@@ -64,8 +64,8 @@ function Jeu() {
   const [bg, setBg] = useState("bgTrue");
 
   const [score, setScore] = useState(0);
-  const Length = ingredientsPotion?.length;
-  const gainScore = 200 / Length;
+  const ingredientsPotionLength = ingredientsPotion?.length;
+  const gainScore = 200 / ingredientsPotionLength;
 
   return (
     <div id="bg" className="w-full flex justify:center ">
