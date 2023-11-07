@@ -31,7 +31,7 @@ function Jeu() {
     pvs = [1, 2];
   }
   const [pV, setPV] = useState(pvs);
-  console.info(pV);
+
   const ingredientsPotion = potions[0]?.attributes.ingredients.split(",");
 
   let wrongIngredients = [];
