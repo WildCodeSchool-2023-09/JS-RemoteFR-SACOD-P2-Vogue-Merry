@@ -127,10 +127,7 @@ function Jeu() {
         </span>
         <div className=" flex flex-wrap justify-center  ">
           {allIngredients?.map((ingredient) => (
-            <div
-              key={ingredient}
-              className="flex  bg-purple-heart-500 w-56 h-10 rounded m-2 max-sm:w-42"
-            >
+            <div key={ingredient} className="flex w-56 h-10 m-2 max-sm:w-42">
               <Ingredients
                 ingredient={ingredient}
                 ingredientsPotion={ingredientsPotion}

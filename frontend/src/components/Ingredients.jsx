@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import ingredientImg from "../assets/ingredient.png";
 
 function Ingredients({
@@ -12,6 +13,14 @@ function Ingredients({
   score,
   gainScore,
 }) {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    if (!clicked) {
+      setClicked(true);
+    }
+  };
+
   const isTrue = () => {
     function returnToTrueAnimation() {
       setBg("bgTrue");
@@ -44,8 +53,12 @@ function Ingredients({
   return (
     <button
       type="button"
-      className="flex text-white font-irish w-full h-full justify-center items-center "
-      onClick={() => isTrue()}
+      className="flex bg-purple-heart-500 rounded disabled:bg-purple-heart-900 text-white font-irish w-full h-full justify-center items-center "
+      onClick={() => {
+        isTrue();
+        handleClick();
+      }}
+      disabled={clicked}
     >
       {ingredient}
     </button>
