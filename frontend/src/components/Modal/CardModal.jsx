@@ -16,8 +16,8 @@ function CardModal({ name, image, effect, ingredients, closeModal }) {
         whileInView="visible"
         viewport={{ once: true }}
         variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 },
+          visible: { opacity: 1 },
+          hidden: { opacity: 0 },
         }}
         className="container-elixir bg-purple-800 grid text-white w-72 h-96 rounded-2xl p-4"
       >

@@ -17,7 +17,7 @@ function Footer() {
             setOpenContact(true);
           }}
         >
-          contact us
+          Contact Us
         </button>
         <button
           className="buttonLogin"
@@ -30,9 +30,14 @@ function Footer() {
         </button>
       </div>
       {openContact && (
-        <div className="blur-background flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="blur-background flex items-center justify-center"
+        >
           <Contact closeModal={setOpenContact} />
-        </div>
+        </motion.div>
       )}
       {openModal && (
         <motion.div

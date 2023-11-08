@@ -57,7 +57,7 @@ function Ingredients({
   return (
     <button
       type="button"
-      className="flex bg-purple-heart-500 rounded disabled:bg-purple-heart-900 text-white font-irish w-full h-full justify-center items-center "
+      className="flex bg-purple-heart-500 rounded disabled:bg-purple-heart-900 text-white font-irish w-full h-full justify-center items-center z-10"
       onClick={() => {
         isTrue();
         handleClick();
