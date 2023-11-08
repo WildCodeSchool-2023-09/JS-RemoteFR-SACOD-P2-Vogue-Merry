@@ -21,16 +21,14 @@ function Jeu() {
   }, []);
 
   const { id } = useParams();
-
   let pvs;
   let selectedPotions;
-  let random;
+
   if (id === "easy") {
     pvs = [1, 2, 3, 4];
     selectedPotions = potions.filter((potion) =>
       potion?.attributes.difficulty.includes("Beginner")
     );
-    random = Math.ceil(Math.random() * selectedPotions.length);
   } else if (id === "medium") {
     pvs = [1, 2, 3];
     const difficulty = ["Advanced", "Modarate"];
@@ -45,6 +43,8 @@ function Jeu() {
       potion?.attributes.difficulty.includes("Wizard")
     );
   }
+  const random = Math.ceil(Math.random() * selectedPotions.length);
+
   const [pV, setPV] = useState(pvs);
   let selectedPotion = potions[0];
   function getPotion() {
@@ -52,8 +52,11 @@ function Jeu() {
     return selectedPotion;
   }
 
-  const potionSelected = useMemo(() => getPotion(selectedPotion), [potions]);
-
+  const potionSelected = useMemo(
+    () => getPotion(selectedPotion),
+    [selectedPotion]
+  );
+  console.info(potionSelected);
   const ingredientsPotion = potionSelected?.attributes.ingredients.split(",");
 
   let wrongIngredients = [];
@@ -71,7 +74,7 @@ function Jeu() {
   const wrongList = useMemo(() => getIngredient(wrongIngredients), [potions]);
 
   const allIngredients = ingredientsPotion?.concat(
-    wrongList.slice(0, 10 - ingredientsPotion.length)
+    wrongList.slice(0, ingredientsPotion.length + 5 - ingredientsPotion.length)
   );
 
   allIngredients?.sort();
@@ -84,7 +87,7 @@ function Jeu() {
 
   const [score, setScore] = useState(0);
   const ingredientsPotionLength = ingredientsPotion?.length;
-  const gainScore = 200 / ingredientsPotionLength;
+  const gainScore = Math.ceil(200 / ingredientsPotionLength);
 
   return (
     <div id="bg" className="w-full flex justify:center ">
@@ -151,14 +154,14 @@ function Jeu() {
                 </div>
               </div>
             </div>
-            <span className="w-full h-3/6 ">
+            <span className="w-full ">
               <Chaudron bg={bg} />
             </span>
-            <div className=" flex flex-wrap justify-center ">
+            <div className=" flex flex-wrap justify-center  ">
               {allIngredients?.map((ingredient) => (
                 <div
                   key={ingredient}
-                  className="flex w-56 h-10 rounded m-2 max-sm:w-42"
+                  className="flex flex-wrap w-56 h-10 rounded m-2 max-sm:w-36 inset-1"
                 >
                   <Ingredients
                     ingredient={ingredient}
