@@ -55,25 +55,24 @@ function OngletElixir() {
     );
   }
 
+  /* Fonction et variable pour gérer les boutons previous et next */
   const tableauOriginal = elixir;
   let pageTest = tableauOriginal.slice(pageActuel, pageActuel + 32);
+
   function handlePageNext(slice) {
-    if (slice + 32 > 156) {
-      /* empty */
-    } else {
+    if (!(slice + 32 > 156)) {
       setPageActuel(pageActuel + 32);
       pageTest = tableauOriginal.slice(pageActuel, pageActuel + 32);
     }
   }
 
   function handlePagePrevious(slice) {
-    if (slice - 32 < 0) {
-      /* empty */
-    } else {
+    if (!(slice - 32 < 0)) {
       setPageActuel(pageActuel - 32);
       pageTest = tableauOriginal.slice(pageActuel - 32, pageActuel);
     }
   }
+
   return (
     <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat mb-10">
       <div className="barre-de-recherche-elixir flex items-center justify-center gap-8">
