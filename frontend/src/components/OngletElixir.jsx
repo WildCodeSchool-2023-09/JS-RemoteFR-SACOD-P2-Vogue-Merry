@@ -22,19 +22,26 @@ function OngletElixir() {
   }
 
   useEffect(() => {
-    let API = `https://api.potterdb.com/v1/potions`;
+    let API = [
+      "https://api.potterdb.com/v1/potions",
+      "https://api.potterdb.com/v1/potions?page[number]=2",
+    ];
     if (difficulty) {
       API = `https://api.potterdb.com/v1/potions?filter[difficulty_not_null]=true&filter[ingredients_not_null]=true&filter[difficulty_cont_any]=${difficulty}`;
+      axios.get(API).then((response) => {
+        setElixir(response.data.data);
+      });
+    } else {
+      axios.all(API.map((endpoint) => axios.get(endpoint))).then((response) => {
+        setElixir([...response[0].data.data, ...response[1].data.data]);
+      });
     }
-    axios.get(API).then((response) => {
-      setElixir(response.data.data);
-    });
   }, [difficulty]);
 
   const boutonStyle =
     "bg-purple-heart-500 px-24 max-xl:px-12 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat";
 
-  /* condition pour attendre les infos de l'API car sinon on ne peut pas boucler avec le .map ligne 55 */
+  /* condition pour attendre les infos de l'API car sinon on ne peut pas boucler avec le .map plus bas */
   if (!elixir) {
     return (
       <div className="flex justify-center items-center h-screen font-extrabold font-montserrat text-lg">
