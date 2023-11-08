@@ -307,6 +307,7 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   @media screen and (max-width: 450px) {
+    background-image: url("./assets/class-mobile.jpg");
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -378,7 +379,7 @@ footer {
     }
   }
 }
-#oimgIngredient {
+#imgIngredient {
   @media screen and (max-width: 450px) {
     width: 50%;
     height: 50%;
@@ -386,12 +387,4 @@ footer {
 }
 .bonus {
   justify-content: center;
-}
-.ingredient {
-  position: relative;
-  top: -80px;
-  @media screen and (max-width: 450px) {
-    position: relative;
-    top: 0px;
-  }
 }
