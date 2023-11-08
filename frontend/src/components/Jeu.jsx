@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import PV from "../assets/f7dfdf45.png";
 import Ingredients from "./Ingredients";
+import Victory from "./Victory";
 import "../App.scss";
 import ingtransp from "../assets/ingredienttransp.png";
 import Chaudron from "./chaudron";
@@ -21,18 +22,43 @@ function Jeu() {
   }, []);
 
   const { id } = useParams();
-
   let pvs;
+  let selectedPotions;
+
   if (id === "easy") {
     pvs = [1, 2, 3, 4];
+    selectedPotions = potions.filter((potion) =>
+      potion?.attributes.difficulty.includes("Beginner")
+    );
   } else if (id === "medium") {
     pvs = [1, 2, 3];
+    const difficulty = ["Advanced", "Modarate"];
+    selectedPotions = potions.filter(
+      (potion) =>
+        difficulty.some((el) => potion?.attributes.difficulty.includes(el)) ===
+        true
+    );
   } else {
     pvs = [1, 2];
+    selectedPotions = potions.filter((potion) =>
+      potion?.attributes.difficulty.includes("Wizard")
+    );
   }
-  const [pV, setPV] = useState(pvs);
+  const random = Math.ceil(Math.random() * selectedPotions.length);
 
-  const ingredientsPotion = potions[0]?.attributes.ingredients.split(",");
+  const [pV, setPV] = useState(pvs);
+  let selectedPotion = potions[0];
+  function getPotion() {
+    selectedPotion = selectedPotions[random];
+    return selectedPotion;
+  }
+
+  const potionSelected = useMemo(
+    () => getPotion(selectedPotion),
+    [selectedPotion]
+  );
+
+  const ingredientsPotion = potionSelected?.attributes.ingredients.split(",");
 
   let wrongIngredients = [];
   function getIngredient() {
@@ -46,13 +72,10 @@ function Jeu() {
     }
     return wrongIngredients;
   }
-  const wrongList = useMemo(
-    () => getIngredient(wrongIngredients),
-    ingredientsPotion
-  );
+  const wrongList = useMemo(() => getIngredient(wrongIngredients), [potions]);
 
   const allIngredients = ingredientsPotion?.concat(
-    wrongList.slice(0, 10 - ingredientsPotion.length)
+    wrongList.slice(0, ingredientsPotion.length + 5 - ingredientsPotion.length)
   );
 
   allIngredients?.sort();
@@ -65,15 +88,15 @@ function Jeu() {
 
   const [score, setScore] = useState(0);
   const ingredientsPotionLength = ingredientsPotion?.length;
-  const gainScore = 200 / ingredientsPotionLength;
+  const gainScore = Math.ceil(200 / ingredientsPotionLength);
 
   return (
-    <div id="bg" className="w-full flex justify:center ">
+    <div id="bg" className="w-full h-full flex justify:center  ">
       <div
-        className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
+        className="  h-full w-full flex flex-col items-center  justify-around max-sm:justify-normal max-sm:pt-2
       "
       >
-        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl  w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-8">
+        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl mt-2 w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-8">
           <h2 className="text-black text-center  text-xl font-irish max-sm:text-xs  ">
             You must make this potion
           </h2>
@@ -81,10 +104,10 @@ function Jeu() {
             Find {ingredientsPotion?.length} ingredients
           </p>
         </div>
-        {pV.length !== 0 ? (
+        {pV.length !== 0 && score !== 200 ? (
           <>
             <div
-              className="flex justify-between w-5/6  p-3 max-sm:w-full max-sm:h-48 items-center
+              className="flex justify-between w-5/6 h-auto  max-sm:w-full max-sm:h-48 items-center
   
         "
             >
@@ -93,7 +116,7 @@ function Jeu() {
           max-sm:w-2/6 max-sm:h-32 max-sm:bg-cover max-sm:p-0  max-sm:gap-0 "
               >
                 <img
-                  src={potions[0]?.attributes.image}
+                  src={potionSelected?.attributes.image}
                   alt="potion"
                   className="w-14 h-12  max-sm:w-6 max-sm:h-6 "
                 />
@@ -102,16 +125,16 @@ function Jeu() {
             max-sm:w-18 max-sm:text-xs 
             "
                 >
-                  <p>{potions[0]?.attributes.name}</p>
-                  <p>{potions[0]?.attributes.characteristics}</p>
-                  <p>{potions[0]?.attributes.effect} </p>
+                  <p>{potionSelected?.attributes.name}</p>
+                  <p>{potionSelected?.attributes.characteristics}</p>
+                  <p>{potionSelected?.attributes.effect} </p>
                 </span>
               </div>
               <span className={imgIngredientClass}>
                 <img src={imgIngredient} alt={imgIngredient} />
               </span>
               <div
-                className="text-white h-48 w-72 p-10 rounded-2xl bg-purple-heart-500 flex flex-col  gap-10 justify-center
+                className="text-white h-44 w-72 p-4 rounded-2xl bg-purple-heart-500 flex flex-col  gap-10 justify-center
           max-sm:w-28 max-sm:h-16 max-sm:p-0 max-sm:gap-0 align-middle"
               >
                 <div className="flex flex-row justify-around max-sm:justify-center">
@@ -132,14 +155,14 @@ function Jeu() {
                 </div>
               </div>
             </div>
-            <span className="w-full h-3/6 ">
+            <span className="w-full ">
               <Chaudron bg={bg} />
             </span>
-            <div className=" flex flex-wrap justify-center ">
+            <div className=" ingredients flex flex-wrap justify-center max-sm:text-xs ">
               {allIngredients?.map((ingredient) => (
                 <div
                   key={ingredient}
-                  className="flex w-56 h-10 rounded m-2 max-sm:w-42"
+                  className="flex flex-wrap w-56 h-10 rounded m-2 max-sm:w-36 "
                 >
                   <Ingredients
                     ingredient={ingredient}
@@ -158,12 +181,12 @@ function Jeu() {
             </div>
           </>
         ) : (
-          <p
+          <div
             className="text-white font-irish w-5/6 h-3/6 flex justify-center items-center text-7xl
-          max-sm:text-xl max-sm:text-black "
+          max-sm:text-xl max-sm:text-black"
           >
-            Game Over !!
-          </p>
+            {score === 200 ? <Victory result /> : <Victory result={false} />}
+          </div>
         )}
       </div>
     </div>
