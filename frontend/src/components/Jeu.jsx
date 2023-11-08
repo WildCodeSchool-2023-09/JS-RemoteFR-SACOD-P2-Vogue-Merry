@@ -57,7 +57,7 @@ function Jeu() {
     () => getPotion(selectedPotion),
     [selectedPotion]
   );
-  console.info(potionSelected);
+
   const ingredientsPotion = potionSelected?.attributes.ingredients.split(",");
 
   let wrongIngredients = [];
