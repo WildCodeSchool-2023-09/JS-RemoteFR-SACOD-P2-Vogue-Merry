@@ -6,9 +6,7 @@ body {
   margin: 0;
   background-color: #e6d7fd;
 }
-* {
-  box-sizing: content-box;
-}
+
 .input-searchbar {
   &:focus-within,
   &:hover {
@@ -335,16 +333,18 @@ footer {
   text-align: center;
   width: 100%;
   height: 50vh;
+  position: relative;
+  top: 80px;
   background-image: url("./assets/potionclassroom-animation-false.gif");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   @media screen and (max-width: 450px) {
-    height: 130%;
+    height: 30vh;
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
-    top: -100px;
+    top: -50px;
   }
 }
 .imgIngredient {
@@ -378,7 +378,7 @@ footer {
     }
   }
 }
-img {
+#oimgIngredient {
   @media screen and (max-width: 450px) {
     width: 50%;
     height: 50%;
@@ -387,7 +387,7 @@ img {
 .bonus {
   justify-content: center;
 }
-.ingredients {
+.ingredient {
   position: relative;
   top: -80px;
   @media screen and (max-width: 450px) {
