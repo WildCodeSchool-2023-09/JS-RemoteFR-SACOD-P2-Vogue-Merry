@@ -91,12 +91,12 @@ function Jeu() {
   const gainScore = Math.ceil(200 / ingredientsPotionLength);
 
   return (
-    <div id="bg" className="w-full flex justify:center ">
+    <div id="bg" className="w-full h-full flex justify:center  ">
       <div
-        className="  h-full w-full flex flex-col items-center p-3 justify-around max-sm:justify-normal
+        className="  h-full w-full flex flex-col items-center  justify-around max-sm:justify-normal max-sm:pt-2
       "
       >
-        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl  w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-8">
+        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl mt-2 w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-8">
           <h2 className="text-black text-center  text-xl font-irish max-sm:text-xs  ">
             You must make this potion
           </h2>
@@ -107,7 +107,7 @@ function Jeu() {
         {pV.length !== 0 && score !== 200 ? (
           <>
             <div
-              className="flex justify-between w-5/6  p-3 max-sm:w-full max-sm:h-48 items-center
+              className="flex justify-between w-5/6 h-auto  max-sm:w-full max-sm:h-48 items-center
   
         "
             >
@@ -134,7 +134,7 @@ function Jeu() {
                 <img src={imgIngredient} alt={imgIngredient} />
               </span>
               <div
-                className="text-white h-48 w-72 p-10 rounded-2xl bg-purple-heart-500 flex flex-col  gap-10 justify-center
+                className="text-white h-44 w-72 p-4 rounded-2xl bg-purple-heart-500 flex flex-col  gap-10 justify-center
           max-sm:w-28 max-sm:h-16 max-sm:p-0 max-sm:gap-0 align-middle"
               >
                 <div className="flex flex-row justify-around max-sm:justify-center">
@@ -158,11 +158,11 @@ function Jeu() {
             <span className="w-full ">
               <Chaudron bg={bg} />
             </span>
-            <div className=" flex flex-wrap justify-center  ">
+            <div className=" ingredients flex flex-wrap justify-center max-sm:text-xs ">
               {allIngredients?.map((ingredient) => (
                 <div
                   key={ingredient}
-                  className="flex flex-wrap w-56 h-10 rounded m-2 max-sm:w-36 inset-1"
+                  className="flex flex-wrap w-56 h-10 rounded m-2 max-sm:w-36 "
                 >
                   <Ingredients
                     ingredient={ingredient}
