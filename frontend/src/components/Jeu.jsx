@@ -131,7 +131,11 @@ function Jeu() {
                 </span>
               </div>
               <span className={imgIngredientClass}>
-                <img src={imgIngredient} alt={imgIngredient} />
+                <img
+                  src={imgIngredient}
+                  className="imgIngredient"
+                  alt={imgIngredient}
+                />
               </span>
               <div
                 className="text-white h-44 w-72 p-4 rounded-2xl bg-purple-heart-500 flex flex-col  gap-10 justify-center
@@ -158,7 +162,7 @@ function Jeu() {
             <span className="w-full ">
               <Chaudron bg={bg} />
             </span>
-            <div className=" ingredients flex flex-wrap justify-center max-sm:text-xs ">
+            <div className=" ingredient flex flex-wrap justify-center max-sm:text-xs ">
               {allIngredients?.map((ingredient) => (
                 <div
                   key={ingredient}

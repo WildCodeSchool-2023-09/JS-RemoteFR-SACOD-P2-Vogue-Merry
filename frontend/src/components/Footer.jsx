@@ -7,7 +7,7 @@ function Footer() {
   const [openModal, setOpenModal] = useState(false);
   const [openContact, setOpenContact] = useState(false);
   return (
-    <footer>
+    <footer className="fixed bottom-0 w-full">
       <p>Copyright @ 2023 Team VOGUE MERRY Tous droits réservés.</p>
       <div className="bonus">
         <button
