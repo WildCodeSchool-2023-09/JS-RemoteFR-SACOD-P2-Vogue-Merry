@@ -109,18 +109,6 @@ h1 > p {
   .leaderboard h1 {
     display: none;
   }
-  #potion {
-    max-height: 40px;
-    align-items: center;
-  }
-  #trophy {
-    max-height: 40px;
-    align-items: center;
-  }
-  #muteButton {
-    max-height: 40px;
-    align-items: center;
-  }
 }
 
 .container-accueil {
@@ -291,6 +279,9 @@ footer {
   background-position: center;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+  font-family: Irish Grover;
+  text-align: center;
   height: 45rem;
   width: 80ch;
   p {
