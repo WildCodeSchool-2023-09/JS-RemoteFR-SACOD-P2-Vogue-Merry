@@ -5,12 +5,12 @@ function Card({ name, image, effect, ingredients }) {
   return (
     <motion.div
       initial="hidden"
-      exit="hidden"
+      exit={{ opacity: 0 }}
       whileInView="visible"
       viewport={{ once: true }}
       variants={{
-        visible: { opacity: 1, scale: 1 },
-        hidden: { opacity: 0, scale: 0 },
+        visible: { opacity: 1 },
+        hidden: { opacity: 0 },
       }}
       className="container-elixir bg-purple-800 grid text-white w-72 max-sm:w-36 h-96 max-sm:h-auto rounded-2xl p-4 max-sm:p-2"
     >

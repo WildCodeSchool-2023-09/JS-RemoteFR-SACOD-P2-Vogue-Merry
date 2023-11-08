@@ -1,13 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 html,
 body {
   margin: 0;
   background-color: #e6d7fd;
 }
-
+* {
+  box-sizing: content-box;
+}
 .input-searchbar {
   &:focus-within,
   &:hover {
@@ -108,18 +109,6 @@ h1 > p {
   }
   .leaderboard h1 {
     display: none;
-  }
-  #potion {
-    max-height: 40px;
-    align-items: center;
-  }
-  #trophy {
-    max-height: 40px;
-    align-items: center;
-  }
-  #muteButton {
-    max-height: 40px;
-    align-items: center;
   }
 }
 
@@ -291,6 +280,9 @@ footer {
   background-position: center;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+  font-family: Irish Grover;
+  text-align: center;
   height: 45rem;
   width: 80ch;
   p {
@@ -312,7 +304,7 @@ footer {
   }
 }
 #bg {
-  height: 100vh;
+  height: auto;
   background-image: url("./assets/potionclassroom.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -324,23 +316,25 @@ footer {
 #bgTrue {
   text-align: center;
   width: 100%;
-  height: 130%;
+  height: 50vh;
+  position: relative;
+  top: 80px;
   background-image: url("./assets/potionclassroom-animation-ok.gif");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   @media screen and (max-width: 450px) {
-    height: 180%;
+    height: 30vh;
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
-    top: -100px;
+    top: -50px;
   }
 }
 #bgFalse {
   text-align: center;
   width: 100%;
-  height: 130%;
+  height: 50vh;
   background-image: url("./assets/potionclassroom-animation-false.gif");
   background-size: contain;
   background-position: center;
@@ -392,4 +386,12 @@ img {
 }
 .bonus {
   justify-content: center;
+}
+.ingredients {
+  position: relative;
+  top: -80px;
+  @media screen and (max-width: 450px) {
+    position: relative;
+    top: 0px;
+  }
 }
