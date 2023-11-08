@@ -12,7 +12,7 @@ function OngletElixir() {
   const [difficulty, setDifficulty] = useState(null);
   const [openCard, setOpenCard] = useState(false);
   const [btnIndex, setBtnIndex] = useState();
-
+  const [pageActuel, setPageActuel] = useState(0);
   function findButtonIndex(objet) {
     return objet.id === btnIndex;
   }
@@ -53,6 +53,26 @@ function OngletElixir() {
         Chargement en cours
       </div>
     );
+  }
+
+  const tableauOriginal = elixir;
+  let pageTest = tableauOriginal.slice(pageActuel, pageActuel + 32);
+  function handlePageNext(slice) {
+    if (slice + 32 > 156) {
+      /* empty */
+    } else {
+      setPageActuel(pageActuel + 32);
+      pageTest = tableauOriginal.slice(pageActuel, pageActuel + 32);
+    }
+  }
+
+  function handlePagePrevious(slice) {
+    if (slice - 32 < 0) {
+      /* empty */
+    } else {
+      setPageActuel(pageActuel - 32);
+      pageTest = tableauOriginal.slice(pageActuel - 32, pageActuel);
+    }
   }
   return (
     <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat mb-10">
@@ -106,7 +126,7 @@ function OngletElixir() {
       >
         <LayoutGroup>
           <AnimatePresence>
-            {elixir
+            {pageTest
               .filter((element) =>
                 element.attributes.name.toLowerCase().includes(searchValue)
               )
@@ -148,6 +168,24 @@ function OngletElixir() {
           </div>
         )}
       </motion.div>
+      <div className="flex justify-center gap-4 mt-6 text-white">
+        <button
+          type="button"
+          onClick={() => handlePagePrevious(pageActuel)}
+          disabled={pageActuel - 32 < 0 && true}
+          className="btnNextElixir box-border shadow-md shadow-gray-500 py-1 w-32 rounded-lg bg-purple-heart-500 transition hover:bg-purple-heart-800 disabled:bg-purple-100 disabled:text-gray-400 disabled:shadow-none"
+        >
+          Previous
+        </button>
+        <button
+          type="button"
+          onClick={() => handlePageNext(pageActuel)}
+          disabled={pageActuel + 32 > 156 && true}
+          className="btnNextElixir box-border shadow-md shadow-gray-500 py-1 w-32 rounded-lg bg-purple-heart-500 transition hover:bg-purple-heart-800 disabled:bg-purple-100 disabled:text-gray-400 disabled:shadow-none"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }

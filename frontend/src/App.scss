@@ -6,9 +6,7 @@ body {
   margin: 0;
   background-color: #e6d7fd;
 }
-* {
-  box-sizing: content-box;
-}
+
 .input-searchbar {
   &:focus-within,
   &:hover {
