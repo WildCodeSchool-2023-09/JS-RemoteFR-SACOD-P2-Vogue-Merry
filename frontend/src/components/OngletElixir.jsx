@@ -29,6 +29,7 @@ function OngletElixir() {
     setDifficulty(value);
     setSearchValue("");
     setSearchActive(!isActive);
+    setPageActuel(0);
   }
 
   useEffect(() => {
@@ -66,14 +67,14 @@ function OngletElixir() {
   }
 
   function handlePageNext(slice) {
-    if (!(slice + 32 > 156)) {
-      setPageActuel(pageActuel + 32);
+    if (!(slice + 36 > 156)) {
+      setPageActuel(pageActuel + 36);
     }
   }
 
   function handlePagePrevious(slice) {
-    if (!(slice - 32 < 0)) {
-      setPageActuel(pageActuel - 32);
+    if (!(slice - 36 < 0)) {
+      setPageActuel(pageActuel - 36);
     }
   }
 
@@ -95,6 +96,8 @@ function OngletElixir() {
           onChange={(event) => {
             setSearchValue(event.target.value.toLowerCase());
             setSearchActive(!!event.target.value);
+            setPageActuel(0);
+            setDifficulty(null);
           }}
           className="rounded-xl shadow-xl input-searchbar transition p-1 border-4 border-white"
         />
@@ -102,28 +105,36 @@ function OngletElixir() {
       <div className="filtre-elixir flex justify-center gap-10 max-sm:gap-2 text-white p-6 font-bold max-sm:flex-col mb-10">
         <button
           type="button"
-          onClick={() => handleDifficulty(null, true)}
+          onClick={() => {
+            handleDifficulty(null, true);
+          }}
           className={boutonStyle}
         >
           All
         </button>
         <button
           type="button"
-          onClick={() => handleDifficulty("beginner", false)}
+          onClick={() => {
+            handleDifficulty("beginner", false);
+          }}
           className={boutonStyle}
         >
           Easy
         </button>
         <button
           type="button"
-          onClick={() => handleDifficulty("moderate,advanced", false)}
+          onClick={() => {
+            handleDifficulty("moderate,advanced", false);
+          }}
           className={boutonStyle}
         >
           Medium
         </button>
         <button
           type="button"
-          onClick={() => handleDifficulty("wizard", false)}
+          onClick={() => {
+            handleDifficulty("wizard", false);
+          }}
           className={boutonStyle}
         >
           Hard
@@ -139,7 +150,7 @@ function OngletElixir() {
               .filter((element) =>
                 element.attributes.name.toLowerCase().includes(searchValue)
               )
-              .slice(pageActuel, pageActuel + 32)
+              .slice(pageActuel, pageActuel + 36)
               .map((element) => (
                 <button
                   key={element.id}
@@ -185,7 +196,7 @@ function OngletElixir() {
             handlePagePrevious(pageActuel);
             scrollToElement();
           }}
-          disabled={pageActuel - 32 < 0 || searchActive}
+          disabled={pageActuel - 36 < 0 || searchActive}
           className="btnNextElixir box-border shadow-md shadow-gray-500 py-1 w-32 rounded-lg bg-purple-heart-500 transition hover:bg-purple-heart-800 disabled:bg-purple-100 disabled:text-gray-400 disabled:shadow-none"
         >
           Previous
@@ -196,7 +207,7 @@ function OngletElixir() {
             handlePageNext(pageActuel);
             scrollToElement();
           }}
-          disabled={pageActuel + 32 > 156 || searchActive}
+          disabled={pageActuel + 36 > 156 || searchActive}
           className="btnNextElixir box-border shadow-md shadow-gray-500 py-1 w-32 rounded-lg bg-purple-heart-500 transition hover:bg-purple-heart-800 disabled:bg-purple-100 disabled:text-gray-400 disabled:shadow-none"
         >
           Next
