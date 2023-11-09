@@ -16,7 +16,7 @@ git config --global core.autocrlf false
 
 ### Project Initialization
 
-- install plugins **Prettier - Code formatter** and **ESLint** and configure them
+- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
 - Clone this repo, enter it
 - If you are using `yarn` or `pnpm`, adapt the `config/cli` in `package.json`
 - Run command `npm install` (or equivalent using `yarn` or `pnpm`)
