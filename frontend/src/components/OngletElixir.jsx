@@ -14,6 +14,11 @@ function OngletElixir() {
   const [btnIndex, setBtnIndex] = useState();
   const [pageActuel, setPageActuel] = useState(0);
   const [searchActive, setSearchActive] = useState(false);
+  const [clicked, setClicked] = useState(1);
+
+  const handleClick = (number) => {
+    setClicked(number);
+  };
 
   const ref = useRef(null);
 
@@ -50,7 +55,7 @@ function OngletElixir() {
   }, [difficulty]);
 
   const boutonStyle =
-    "bg-purple-heart-500 px-24 max-xl:px-12 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat";
+    "bg-purple-heart-500 px-24 max-xl:px-12 text-center rounded-lg hover:bg-purple-heart-800 py-1 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] transition font-montserrat disabled:bg-purple-heart-800";
 
   /* condition pour attendre les infos de l'API car sinon on ne peut pas boucler avec le .map plus bas */
   if (!elixir) {
@@ -98,6 +103,7 @@ function OngletElixir() {
             setSearchActive(!!event.target.value);
             setPageActuel(0);
             setDifficulty(null);
+            setClicked(0);
           }}
           className="rounded-xl shadow-xl input-searchbar transition p-1 border-4 border-white"
         />
@@ -107,7 +113,9 @@ function OngletElixir() {
           type="button"
           onClick={() => {
             handleDifficulty(null, true);
+            handleClick(1);
           }}
+          disabled={clicked === 1 && true}
           className={boutonStyle}
         >
           All
@@ -116,7 +124,9 @@ function OngletElixir() {
           type="button"
           onClick={() => {
             handleDifficulty("beginner", false);
+            handleClick(2);
           }}
+          disabled={clicked === 2 && true}
           className={boutonStyle}
         >
           Easy
@@ -125,7 +135,9 @@ function OngletElixir() {
           type="button"
           onClick={() => {
             handleDifficulty("moderate,advanced", false);
+            handleClick(3);
           }}
+          disabled={clicked === 3 && true}
           className={boutonStyle}
         >
           Medium
@@ -134,7 +146,9 @@ function OngletElixir() {
           type="button"
           onClick={() => {
             handleDifficulty("wizard", false);
+            handleClick(4);
           }}
+          disabled={clicked === 4 && true}
           className={boutonStyle}
         >
           Hard
