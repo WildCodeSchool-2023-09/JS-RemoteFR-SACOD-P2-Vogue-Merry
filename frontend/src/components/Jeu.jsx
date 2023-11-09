@@ -88,7 +88,7 @@ function Jeu() {
 
   const [score, setScore] = useState(0);
   const ingredientsPotionLength = ingredientsPotion?.length;
-  const gainScore = Math.ceil(200 / ingredientsPotionLength);
+  const gainScore = 200 / ingredientsPotionLength;
 
   return (
     <div id="bg" className="w-full h-full flex justify:center  ">
@@ -155,7 +155,7 @@ function Jeu() {
                 </div>
                 <div className="flex flex-row justify-around max-sm:justify-center">
                   <h3 className="font-irish">Score </h3>
-                  <h4 className="font-irish">{score}/200</h4>
+                  <h4 className="font-irish">{Math.floor(score)}/200</h4>
                 </div>
               </div>
             </div>
