@@ -74,7 +74,7 @@ function OngletElixir() {
   }
 
   return (
-    <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat mb-10">
+    <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat mb-16">
       <div className="barre-de-recherche-elixir flex items-center justify-center gap-8">
         <img
           src={searchIcon}
@@ -121,7 +121,7 @@ function OngletElixir() {
       </div>
       <motion.div
         layout
-        className="liste-elixir flex flex-wrap gap-10 max-sm:gap-2 justify-center"
+        className="liste-elixir flex flex-wrap gap-10 max-sm:gap-2 justify-center "
       >
         <LayoutGroup>
           <AnimatePresence>

@@ -107,7 +107,7 @@ function Jeu() {
         {pV.length !== 0 && score !== 200 ? (
           <>
             <div
-              className="flex justify-between w-5/6 h-auto  max-sm:w-full max-sm:h-48 items-center
+              className="flex justify-between w-5/6 h-auto  max-sm:w-full max-sm:h-auto items-center
   
         "
             >
@@ -122,7 +122,7 @@ function Jeu() {
                 />
                 <span
                   className="w-26 text-white text-center font-irish flex flex-col
-            max-sm:w-18 max-sm:text-xs 
+            max-sm:w-16 max-sm:text-xs 
             "
                 >
                   <p>{potionSelected?.attributes.name}</p>
@@ -131,7 +131,11 @@ function Jeu() {
                 </span>
               </div>
               <span className={imgIngredientClass}>
-                <img src={imgIngredient} alt={imgIngredient} />
+                <img
+                  src={imgIngredient}
+                  className="imgIngredient"
+                  alt={imgIngredient}
+                />
               </span>
               <div
                 className="text-white h-44 w-72 p-4 rounded-2xl bg-purple-heart-500 flex flex-col  gap-10 justify-center
@@ -155,10 +159,10 @@ function Jeu() {
                 </div>
               </div>
             </div>
-            <span className="w-full ">
+            <span className="w-full h-auto ">
               <Chaudron bg={bg} />
             </span>
-            <div className=" ingredients flex flex-wrap justify-center max-sm:text-xs ">
+            <div className=" flex flex-wrap justify-center mb-10 max-sm:text-xs ">
               {allIngredients?.map((ingredient) => (
                 <div
                   key={ingredient}
