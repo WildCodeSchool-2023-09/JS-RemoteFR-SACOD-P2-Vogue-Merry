@@ -88,7 +88,7 @@ function Jeu() {
 
   const [score, setScore] = useState(0);
   const ingredientsPotionLength = ingredientsPotion?.length;
-  const gainScore = Math.ceil(200 / ingredientsPotionLength);
+  const gainScore = 200 / ingredientsPotionLength;
 
   return (
     <div id="bg" className="w-full h-full flex justify:center  ">
@@ -112,8 +112,8 @@ function Jeu() {
         "
             >
               <div
-                className="bg-[url('./assets/parch.png')] bg-no-repeat h-72 w-80  flex flex-col  items-center justify-center
-          max-sm:w-2/6 max-sm:h-32 max-sm:bg-cover max-sm:p-0  max-sm:gap-0 "
+                className="bg-[url('./assets/parch.png')] bg-no-repeat h-72 w-72  flex flex-col  items-center justify-center
+          max-sm:w-2/6 max-sm:h-36 max-sm:bg-contain max-sm:p-0  max-sm:gap-0 "
               >
                 <img
                   src={potionSelected?.attributes.image}
@@ -121,13 +121,19 @@ function Jeu() {
                   className="w-14 h-12  max-sm:w-6 max-sm:h-6 "
                 />
                 <span
-                  className="w-26 text-white text-center font-irish flex flex-col
-            max-sm:w-16 max-sm:text-xs 
+                  className=" text-white text-center font-irish flex flex-col
+             max-sm:text-xs 
             "
                 >
-                  <p>{potionSelected?.attributes.name}</p>
-                  <p>{potionSelected?.attributes.characteristics}</p>
-                  <p>{potionSelected?.attributes.effect} </p>
+                  <p className="w-48 max-sm:w-22 max-sm:text-xs">
+                    {potionSelected?.attributes.name}
+                  </p>
+                  <p className="w-48 max-sm:w-22 max-sm:text-xs">
+                    {potionSelected?.attributes.characteristics}
+                  </p>
+                  <p className="w-48 max-sm:w-22 max-sm:text-xs">
+                    {potionSelected?.attributes.effect}{" "}
+                  </p>
                 </span>
               </div>
               <span className={imgIngredientClass}>
@@ -155,18 +161,18 @@ function Jeu() {
                 </div>
                 <div className="flex flex-row justify-around max-sm:justify-center">
                   <h3 className="font-irish">Score </h3>
-                  <h4 className="font-irish">{score}/200</h4>
+                  <h4 className="font-irish">{Math.floor(score)}/200</h4>
                 </div>
               </div>
             </div>
             <span className="w-full h-auto ">
               <Chaudron bg={bg} />
             </span>
-            <div className=" flex flex-wrap justify-center mb-10 max-sm:text-xs ">
+            <div className="allIngredients flex flex-wrap justify-center max-sm:text-xs ">
               {allIngredients?.map((ingredient) => (
                 <div
                   key={ingredient}
-                  className="flex flex-wrap w-56 h-10 rounded m-2 max-sm:w-36 "
+                  className="flex flex-wrap justify-start w-56 h-10 rounded m-2 max-sm:w-36 "
                 >
                   <Ingredients
                     ingredient={ingredient}
@@ -186,8 +192,8 @@ function Jeu() {
           </>
         ) : (
           <div
-            className="text-white font-irish w-5/6 h-3/6 flex justify-center items-center text-7xl
-          max-sm:text-xl max-sm:text-black"
+            className="gameOver text-white font-irish w-full h-full flex justify-center items-center text-9xl 
+          max-sm:text-7xl max-sm:pb-32"
           >
             {score === 200 ? <Victory result /> : <Victory result={false} />}
           </div>
