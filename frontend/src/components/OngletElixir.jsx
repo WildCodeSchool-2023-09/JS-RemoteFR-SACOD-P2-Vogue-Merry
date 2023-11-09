@@ -55,21 +55,15 @@ function OngletElixir() {
     );
   }
 
-  /* Fonction et variable pour gérer les boutons previous et next */
-  const tableauOriginal = elixir;
-  let pageTest = tableauOriginal.slice(pageActuel, pageActuel + 32);
-
   function handlePageNext(slice) {
     if (!(slice + 32 > 156)) {
       setPageActuel(pageActuel + 32);
-      pageTest = tableauOriginal.slice(pageActuel, pageActuel + 32);
     }
   }
 
   function handlePagePrevious(slice) {
     if (!(slice - 32 < 0)) {
       setPageActuel(pageActuel - 32);
-      pageTest = tableauOriginal.slice(pageActuel - 32, pageActuel);
     }
   }
 
@@ -125,10 +119,11 @@ function OngletElixir() {
       >
         <LayoutGroup>
           <AnimatePresence>
-            {pageTest
+            {elixir
               .filter((element) =>
                 element.attributes.name.toLowerCase().includes(searchValue)
               )
+              .slice(pageActuel, pageActuel + 32)
               .map((element) => (
                 <button
                   key={element.id}
@@ -167,7 +162,7 @@ function OngletElixir() {
           </div>
         )}
       </motion.div>
-      <div className="flex justify-center gap-4 mt-6 text-white">
+      <div className="flex justify-center gap-4 mt-6 mb-10 text-white">
         <button
           type="button"
           onClick={() => handlePagePrevious(pageActuel)}
