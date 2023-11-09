@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 import searchIcon from "../assets/search.svg";
@@ -13,12 +13,22 @@ function OngletElixir() {
   const [openCard, setOpenCard] = useState(false);
   const [btnIndex, setBtnIndex] = useState();
   const [pageActuel, setPageActuel] = useState(0);
+  const [searchActive, setSearchActive] = useState(false);
+
+  const ref = useRef(null);
+
+  const scrollToElement = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   function findButtonIndex(objet) {
     return objet.id === btnIndex;
   }
 
-  function handleDifficulty(value) {
+  function handleDifficulty(value, isActive) {
     setDifficulty(value);
+    setSearchValue("");
+    setSearchActive(!isActive);
   }
 
   useEffect(() => {
@@ -68,7 +78,10 @@ function OngletElixir() {
   }
 
   return (
-    <div className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat mb-16">
+    <div
+      ref={ref}
+      className="onglet-elixir pt-6 max-w-7xl flex flex-col m-auto font-montserrat mb-16"
+    >
       <div className="barre-de-recherche-elixir flex items-center justify-center gap-8">
         <img
           src={searchIcon}
@@ -79,35 +92,38 @@ function OngletElixir() {
           type="search"
           placeholder="  Chercher un elixir"
           value={searchValue}
-          onChange={(event) => setSearchValue(event.target.value.toLowerCase())}
+          onChange={(event) => {
+            setSearchValue(event.target.value.toLowerCase());
+            setSearchActive(!!event.target.value);
+          }}
           className="rounded-xl shadow-xl input-searchbar transition p-1 border-4 border-white"
         />
       </div>
       <div className="filtre-elixir flex justify-center gap-10 max-sm:gap-2 text-white p-6 font-bold max-sm:flex-col mb-10">
         <button
           type="button"
-          onClick={() => handleDifficulty(null)}
+          onClick={() => handleDifficulty(null, true)}
           className={boutonStyle}
         >
           All
         </button>
         <button
           type="button"
-          onClick={() => handleDifficulty("beginner")}
+          onClick={() => handleDifficulty("beginner", false)}
           className={boutonStyle}
         >
           Easy
         </button>
         <button
           type="button"
-          onClick={() => handleDifficulty("moderate,advanced")}
+          onClick={() => handleDifficulty("moderate,advanced", false)}
           className={boutonStyle}
         >
           Medium
         </button>
         <button
           type="button"
-          onClick={() => handleDifficulty("wizard")}
+          onClick={() => handleDifficulty("wizard", false)}
           className={boutonStyle}
         >
           Hard
@@ -165,16 +181,22 @@ function OngletElixir() {
       <div className="flex justify-center gap-4 mt-6 mb-10 text-white">
         <button
           type="button"
-          onClick={() => handlePagePrevious(pageActuel)}
-          disabled={pageActuel - 32 < 0 && true}
+          onClick={() => {
+            handlePagePrevious(pageActuel);
+            scrollToElement();
+          }}
+          disabled={pageActuel - 32 < 0 || searchActive}
           className="btnNextElixir box-border shadow-md shadow-gray-500 py-1 w-32 rounded-lg bg-purple-heart-500 transition hover:bg-purple-heart-800 disabled:bg-purple-100 disabled:text-gray-400 disabled:shadow-none"
         >
           Previous
         </button>
         <button
           type="button"
-          onClick={() => handlePageNext(pageActuel)}
-          disabled={pageActuel + 32 > 156 && true}
+          onClick={() => {
+            handlePageNext(pageActuel);
+            scrollToElement();
+          }}
+          disabled={pageActuel + 32 > 156 || searchActive}
           className="btnNextElixir box-border shadow-md shadow-gray-500 py-1 w-32 rounded-lg bg-purple-heart-500 transition hover:bg-purple-heart-800 disabled:bg-purple-100 disabled:text-gray-400 disabled:shadow-none"
         >
           Next
