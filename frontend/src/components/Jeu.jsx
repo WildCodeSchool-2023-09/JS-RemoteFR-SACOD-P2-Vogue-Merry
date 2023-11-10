@@ -70,6 +70,11 @@ function Jeu() {
       const arr = potions[i]?.attributes.ingredients.split(",");
       wrongIngredients = wrongIngredients?.concat(arr);
     }
+    for (let j = 0; j < wrongIngredients.length; j += 1) {
+      if (ingredientsPotion.includes(wrongIngredients[j] === true)) {
+        wrongIngredients.splice(j);
+      }
+    }
     return wrongIngredients;
   }
   const wrongList = useMemo(() => getIngredient(wrongIngredients), [potions]);
