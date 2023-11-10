@@ -1,0 +1,397 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body {
+  margin: 0;
+  background-color: #e6d7fd;
+}
+
+.input-searchbar {
+  &:focus-within,
+  &:hover {
+    box-shadow:
+      rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+}
+
+.font-montserrat {
+  font-family: Montserrat, sans-serif;
+}
+
+.font-irish {
+  font-family:
+    Irish Grover,
+    sans-serif;
+}
+
+.container-elixir {
+  box-shadow:
+    rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.ingredients {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f7f7f7;
+  background-color: blueviolet;
+  height: 7vh;
+  padding: 1rem;
+}
+.head {
+  display: flex;
+  align-items: center;
+}
+.title h1,
+.title p {
+  margin: 0;
+}
+.head > img {
+  max-height: 60px;
+  align-self: center;
+}
+h1 > p {
+  display: flex;
+}
+.leaderboard {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 1rem;
+}
+#potionButton {
+  display: flex;
+  align-items: center;
+}
+#trophyButton {
+  display: flex;
+  align-items: center;
+}
+
+#potion {
+  max-height: 50px;
+}
+#trophy {
+  max-height: 50px;
+}
+#muteButton {
+  max-height: 40px;
+  max-width: 40px;
+  color: #f7f7f7;
+}
+@media only screen and (max-width: 600px) {
+  nav {
+    padding: 0.5rem;
+  }
+  .leaderboard {
+    display: flex;
+    font-size: 0.5rem;
+    gap: 1rem;
+  }
+  .title {
+    display: none;
+  }
+  #logo {
+    max-height: 50px;
+    gap: 2rem;
+  }
+  .leaderboard h1 {
+    display: none;
+  }
+}
+
+.container-accueil {
+  display: flex;
+  background: url("./assets/BackgroundAccueil.png");
+  background-size: cover;
+  background-position: center;
+  height: 88vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.play {
+  padding: 0.5vw 4vw 0.5vw 4vw;
+  border-radius: 2rem;
+  border-width: 6px;
+  background-color: #9666d1;
+  border-color: #6e28c3;
+  box-sizing: content-box;
+  width: 7rem;
+  text-align: center;
+  margin: 10px 50px 20px 40px;
+  color: white;
+  -webkit-text-stroke: 1.5px black;
+  font-size: 2.5rem;
+  font-family: Irish Grover;
+  &:hover {
+    background-color: #d9c8ee;
+  }
+}
+.rules {
+  padding: 0.5vw 4vw 0.5vw 4vw;
+  border-radius: 2rem;
+  border-width: 6px;
+  background-color: #9666d1;
+  border-color: #6e28c3;
+  box-sizing: content-box;
+  width: 7rem;
+  text-align: center;
+  margin: 10px 50px 20px 40px;
+  color: white;
+  -webkit-text-stroke: 1.5px black;
+  font-size: 2.5rem;
+  font-family: Irish Grover;
+  &:hover {
+    background-color: #d9c8ee;
+  }
+}
+@media screen and (max-width: 768px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.grand-logo {
+  height: 500px;
+  object-fit: contain;
+}
+
+footer {
+  background-color: blueviolet;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+  height: 5vh;
+  object-fit: contain;
+  @media screen and (max-width: 768px) {
+    font-size: 0.5rem;
+  }
+}
+.buttonContact {
+  border-color: black;
+  padding: 0.1vw 2vw 0.1vw 2vw;
+  margin-left: 2rem;
+  font-family: Montserrat;
+  border-radius: 2rem;
+  border-width: 2px;
+  background-color: #9666d1;
+  margin-bottom: 0;
+  &:hover {
+    background-color: #d9c8ee;
+    color: black;
+  }
+}
+.buttonLogin {
+  border-color: black;
+  padding: 0.1vw 2vw 0.1vw 2vw;
+  margin-left: 2rem;
+  font-family: Montserrat;
+  border-radius: 2rem;
+  border-width: 2px;
+  background-color: #9666d1;
+  margin-bottom: 0;
+  &:hover {
+    background-color: #d9c8ee;
+    color: black;
+  }
+}
+.blur-background {
+  backdrop-filter: blur(1rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}
+.levelButton {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  button {
+    border-radius: 2rem;
+    border-width: 6px;
+    background-color: #9666d1;
+    border-color: #6e28c3;
+    padding: 1rem;
+    width: clamp(200px, 30vw, 40rem);
+    color: white;
+    -webkit-text-stroke: 1.5px black;
+    font-size: 2.5rem;
+    font-family: Irish Grover;
+    box-shadow:
+      rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px,
+      rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    &:hover {
+      background-color: #d9c8ee;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.titreRules {
+  margin-top: 1rem;
+  border-radius: 2rem;
+  border-width: 6px;
+  background-color: #9666d1;
+  border-color: #6e28c3;
+  padding: 0.1vw 15vw 0.1vw 15vw;
+  color: white;
+  -webkit-text-stroke: 1.5px black;
+  font-size: 2.5rem;
+  font-family: Irish Grover;
+  box-shadow:
+    rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.parchRules {
+  display: flex;
+  background-image: url("./assets/parch_rules.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-family: Irish Grover;
+  text-align: center;
+  height: 45rem;
+  width: 80ch;
+  p {
+    width: 40ch;
+  }
+}
+@media screen and (max-width: 768px) {
+  .parchRules {
+    background-color: #9666d1;
+    background-image: none;
+    border-radius: 2rem;
+    color: white;
+    width: 90vw;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    p {
+      max-width: 90%;
+    }
+  }
+}
+#bg {
+  height: auto;
+  background-image: url("./assets/potionclassroom.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 450px) {
+    background-image: url("./assets/class-mobile.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+#bgTrue {
+  text-align: center;
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  top: 80px;
+  background-image: url("./assets/potionclassroom-animation-ok.gif");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 450px) {
+    height: 30vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    top: -50px;
+  }
+}
+#bgFalse {
+  text-align: center;
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  top: 80px;
+  background-image: url("./assets/potionclassroom-animation-false.gif");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 450px) {
+    height: 30vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    top: -50px;
+  }
+}
+.imgIngredient {
+  animation-name: slideIn;
+  transition: all linear;
+  animation-duration: 6s;
+  @keyframes slideIn {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    50% {
+      transform: translate(0px, 300%);
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    @keyframes slideIn {
+      0% {
+        transform: translate(0px, 0px);
+      }
+      50% {
+        transform: translate(0px, 30%);
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+}
+#imgIngredient {
+  @media screen and (max-width: 450px) {
+    width: 50%;
+    height: 50%;
+  }
+}
+.bonus {
+  justify-content: center;
+}
+.gameOver {
+  height: 90vh;
+}
+.allIngredients {
+  position: relative;
+  top: -100px;
+}
