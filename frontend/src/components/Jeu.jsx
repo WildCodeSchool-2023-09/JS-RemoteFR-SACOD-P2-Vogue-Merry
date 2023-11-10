@@ -70,6 +70,11 @@ function Jeu() {
       const arr = potions[i]?.attributes.ingredients.split(",");
       wrongIngredients = wrongIngredients?.concat(arr);
     }
+    for (let j = 0; j < wrongIngredients.length; j += 1) {
+      if (ingredientsPotion.includes(wrongIngredients[j] === true)) {
+        wrongIngredients.splice(j);
+      }
+    }
     return wrongIngredients;
   }
   const wrongList = useMemo(() => getIngredient(wrongIngredients), [potions]);
@@ -195,7 +200,11 @@ function Jeu() {
             className="gameOver text-white font-irish w-full h-full flex justify-center items-center text-9xl 
           max-sm:text-7xl max-sm:pb-32"
           >
-            {score === 200 ? <Victory result /> : <Victory result={false} />}
+            {score === 200 ? (
+              <Victory result pV={pV.length} score={score} />
+            ) : (
+              <Victory result={false} />
+            )}
           </div>
         )}
       </div>
