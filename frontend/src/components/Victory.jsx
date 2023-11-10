@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
-function Victory({ result }) {
+function Victory({ result, pV, score }) {
   if (result) {
     return (
       <motion.p
@@ -9,7 +9,8 @@ function Victory({ result }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        Victory!
+        <h1 className="text-center">Victory!</h1>
+        <p>Your score is {score * pV}</p>
       </motion.p>
     );
   }
@@ -18,6 +19,8 @@ function Victory({ result }) {
 
 Victory.propTypes = {
   result: PropTypes.bool.isRequired,
+  pV: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 export default Victory;
