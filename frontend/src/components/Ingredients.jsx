@@ -16,6 +16,7 @@ function Ingredients({
   pV,
 }) {
   const [clicked, setClicked] = useState(false);
+  const [isTheGoodOne, setIsTheGoodOne] = useState(null);
 
   const handleClick = () => {
     if (!clicked) {
@@ -46,18 +47,22 @@ function Ingredients({
       endAnimation();
       setPV(pV?.splice(1));
       console.info(pV);
+      setIsTheGoodOne(false);
     } else {
       setImgIngredient(ingredientImg);
       setImgIngredientClass("imgIngredient");
       setScore(score + gainScore);
       endImgIngredient();
+      setIsTheGoodOne(true);
     }
   };
 
   return (
     <button
       type="button"
-      className="flex bg-purple-heart-500 rounded disabled:bg-purple-heart-900 text-white font-irish w-full h-full justify-center items-center z-10 "
+      className={`flex bg-purple-heart-500 rounded text-white font-irish w-full h-full justify-center items-center z-10 ${
+        isTheGoodOne ? "disabled:bg-green-500" : "disabled:bg-red-500"
+      }`}
       onClick={() => {
         isTrue();
         handleClick();
