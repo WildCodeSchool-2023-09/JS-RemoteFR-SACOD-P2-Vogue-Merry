@@ -16,6 +16,20 @@ function OngletElixir() {
   const [searchActive, setSearchActive] = useState(false);
   const [clicked, setClicked] = useState(1);
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Escape") {
+      setOpenCard(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
+
   const handleClick = (number) => {
     setClicked(number);
   };
@@ -154,10 +168,7 @@ function OngletElixir() {
           Hard
         </button>
       </div>
-      <motion.div
-        layout
-        className="liste-elixir flex flex-wrap gap-10 max-sm:gap-2 justify-center "
-      >
+      <motion.div className="liste-elixir flex flex-wrap gap-10 max-sm:gap-2 justify-center ">
         <LayoutGroup>
           <AnimatePresence>
             {elixir

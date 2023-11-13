@@ -1,7 +1,23 @@
 import PropTypes from "prop-types";
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 function CardModal({ name, image, effect, ingredients, closeModal }) {
+  const componentRef = useRef();
+
+  const handleOutsideClick = (event) => {
+    if (!componentRef.current.contains(event.target)) {
+      closeModal(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
   return (
     <>
       <button
@@ -12,6 +28,7 @@ function CardModal({ name, image, effect, ingredients, closeModal }) {
         <p> X </p>
       </button>
       <motion.div
+        ref={componentRef}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
