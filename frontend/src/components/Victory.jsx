@@ -19,7 +19,7 @@ function Victory({ result, pV, score }) {
       JSON.stringify(bestScore)
     );
   }, [score, bestScore]);
-
+  const bestFinalScore = bestScore * pV;
   if (result) {
     return (
       <motion.p
@@ -29,14 +29,13 @@ function Victory({ result, pV, score }) {
       >
         <h1 className="text-center">Victory!</h1>
         <p>Your score is {score * pV}</p>
-        <p>Your highest score is {bestScore * pV}!</p>
+        <p>Your highest score is {bestFinalScore}!</p>
       </motion.p>
     );
   }
   return (
     <div className="flex flex-col justify-center items-center">
       <p>Game Over!</p>
-      <p>Your highest score is {bestScore}!</p>
     </div>
   );
 }
