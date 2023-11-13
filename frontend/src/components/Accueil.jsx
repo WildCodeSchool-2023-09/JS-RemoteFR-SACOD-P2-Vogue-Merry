@@ -11,12 +11,12 @@ function Accueil() {
 
       <div className="buttons">
         <Link to="difficulty">
-          <button className="play" type="button">
+          <button className="play transition" type="button">
             PLAY
           </button>
         </Link>
         <Link to="rules">
-          <button className="rules" type="button">
+          <button className="rules transition" type="button">
             RULES
           </button>
         </Link>
