@@ -11,7 +11,7 @@ function Footer() {
       <p>Copyright @ 2023 Team VOGUE MERRY Tous droits réservés.</p>
       <div className="bonus">
         <button
-          className="buttonContact"
+          className="buttonContact transition"
           type="button"
           onClick={() => {
             setOpenContact(true);
@@ -20,7 +20,7 @@ function Footer() {
           Contact Us
         </button>
         <button
-          className="buttonLogin"
+          className="buttonLogin transition"
           type="button"
           onClick={() => {
             setOpenModal(true);
