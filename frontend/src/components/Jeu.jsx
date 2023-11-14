@@ -149,7 +149,7 @@ function Jeu() {
                 />
               </span>
               <div
-                className="text-white h-44 w-72 p-4 rounded-2xl bg-purple-heart-500 flex flex-col  gap-10 justify-center
+                className="text-white h-44 w-72 p-4 rounded-2xl bg-purple-heart-500 border-8 border-purple-heart-700 flex flex-col  gap-10 justify-center
           max-sm:w-28 max-sm:h-16 max-sm:p-0 max-sm:gap-0 align-middle"
               >
                 <div className="flex flex-row justify-around max-sm:justify-center">
