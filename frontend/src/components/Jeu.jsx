@@ -201,7 +201,7 @@ function Jeu() {
           max-sm:text-7xl max-sm:pb-32"
           >
             {score === 200 ? (
-              <Victory result pV={pV.length} score={score} />
+              <Victory result score={pV.length * score} />
             ) : (
               <Victory result={false} />
             )}

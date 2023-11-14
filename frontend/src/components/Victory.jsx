@@ -3,24 +3,26 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Victory({ result, pV, score }) {
-  const [bestScore, setBestScore] = useState(0);
+function Victory({ result, score }) {
+  const [bestScore, setBestScore] = useState(1000);
 
   useEffect(() => {
-    const data = window.localStorage.getItem("BESTSCORE_ELIXIR_MAKER");
-    if (data) setBestScore(JSON.parse(data));
+    const storedScore = Number(
+      window.localStorage.getItem("BESTSCORE_ELIXIR_MAKER")
+    );
+    setBestScore(storedScore);
   }, []);
 
   useEffect(() => {
-    if (bestScore < score) {
+    if (score > bestScore) {
       setBestScore(score);
+      window.localStorage.setItem(
+        "BESTSCORE_ELIXIR_MAKER",
+        JSON.stringify(score)
+      );
     }
-    window.localStorage.setItem(
-      "BESTSCORE_ELIXIR_MAKER",
-      JSON.stringify(bestScore)
-    );
-  }, [score, bestScore]);
-  const bestFinalScore = bestScore * pV;
+  }, [bestScore]);
+
   if (result) {
     return (
       <motion.p
@@ -29,8 +31,8 @@ function Victory({ result, pV, score }) {
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-center">Victory!</h1>
-        <p>Your score is {score * pV}</p>
-        <p>Your highest score is {bestFinalScore}!</p>
+        <p>Your score is {score}</p>
+        <p>Your highest score is {bestScore}!</p>
         <Link to="/difficulty">
           <button
             type="button"
@@ -45,6 +47,7 @@ function Victory({ result, pV, score }) {
   return (
     <div className="flex flex-col justify-center items-center">
       <p>Game Over!</p>
+      {bestScore && <p>Your highest score is {bestScore}</p>}
       <Link to="/difficulty">
         <button
           type="button"
@@ -59,7 +62,6 @@ function Victory({ result, pV, score }) {
 
 Victory.propTypes = {
   result: PropTypes.bool.isRequired,
-  pV: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
 };
 
