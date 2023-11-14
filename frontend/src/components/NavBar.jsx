@@ -18,7 +18,11 @@ function NavBar() {
         <li>
           <NavLink to="difficulty">
             <button id="playButton" type="button">
-              <img id="potion" src="../src/assets/potion.svg" alt="potion" />
+              <img
+                id="potion"
+                src="../src/assets/chaudron.png"
+                alt="chaudron"
+              />
               <h1>Play</h1>
             </button>
           </NavLink>
