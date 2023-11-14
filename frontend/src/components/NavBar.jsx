@@ -16,6 +16,14 @@ function NavBar() {
       </NavLink>
       <ul className="leaderboard">
         <li>
+          <NavLink to="difficulty">
+            <button id="playButton" type="button">
+              <img id="potion" src="../src/assets/potion.svg" alt="potion" />
+              <h1>Play</h1>
+            </button>
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="elixir">
             <button id="potionButton" type="button">
               <img id="potion" src="../src/assets/potion.svg" alt="potion" />
