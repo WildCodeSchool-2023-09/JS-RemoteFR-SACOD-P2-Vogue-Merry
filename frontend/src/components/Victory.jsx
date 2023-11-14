@@ -27,14 +27,17 @@ function Victory({ result, pV, score }) {
         initial={{ opacity: 0, scale: 2 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
+        className="flex flex-col items-center"
       >
         <h1 className="text-center">Victory!</h1>
         <p>Your score is {score * pV}</p>
-        <p>Your highest score is {bestFinalScore}!</p>
+        <p className="text-6xl text-center mb-6">
+          Your highest score is {bestFinalScore}!
+        </p>
         <Link to="/difficulty">
           <button
             type="button"
-            className="flex bg-purple-heart-500 rounded-2xl text-white w-full h-full justify-center items-center z-10 text-3xl hover:bg-purple-heart-800 transition"
+            className="flex bg-purple-heart-300 rounded-2xl text-black px-14 h-full justify-center items-center z-10 text-3xl hover:bg-purple-heart-800 transition"
           >
             Try again
           </button>
@@ -43,12 +46,12 @@ function Victory({ result, pV, score }) {
     );
   }
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center ">
       <p>Game Over!</p>
       <Link to="/difficulty">
         <button
           type="button"
-          className="flex bg-purple-heart-500 rounded-2xl text-white w-full h-full justify-center items-center z-10 text-3xl hover:bg-purple-heart-800 transition"
+          className="flex bg-purple-heart-300 rounded-2xl text-black px-14 h-full justify-center items-center z-10 text-3xl hover:bg-purple-heart-800 transition"
         >
           Try again
         </button>
