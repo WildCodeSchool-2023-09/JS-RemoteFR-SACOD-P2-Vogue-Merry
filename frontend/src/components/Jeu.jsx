@@ -96,13 +96,13 @@ function Jeu() {
   const gainScore = 200 / ingredientsPotionLength;
 
   return (
-    <div id="bg" className="w-full h-full flex justify:center  ">
+    <div id="bg" className="w-full h-full flex justify:center">
       <div
-        className="  h-full w-full flex flex-col items-center  justify-around max-sm:justify-normal max-sm:pt-2
+        className="h-full w-full flex flex-col items-center  justify-around max-sm:justify-normal max-sm:pt-2
       "
       >
-        <div className=" shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl mt-2 w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-8">
-          <h2 className="text-black text-center  text-xl font-irish max-sm:text-xs  ">
+        <div className="shadow-white-100 shadow-2xl bg-purple-heart-300 rounded-2xl mt-2 w-72 justify-center  flex flex-col max-sm:w-22 max-sm:h-8">
+          <h2 className="text-black text-center  text-xl font-irish max-sm:text-xs">
             You must make this potion
           </h2>
           <p className="font-irish text-center max-sm:text-xs">
@@ -111,32 +111,21 @@ function Jeu() {
         </div>
         {pV.length !== 0 && score !== 200 ? (
           <>
-            <div
-              className="flex justify-between w-5/6 h-auto  max-sm:w-full max-sm:h-auto items-center
-  
-        "
-            >
+            <div className="flex justify-between w-5/6 h-auto  max-sm:w-full max-sm:h-auto items-center">
               <div
-                className="bg-[url('./assets/parch.png')] bg-no-repeat h-72 w-72  flex flex-col  items-center justify-center
-          max-sm:w-2/6 max-sm:h-36 max-sm:bg-contain max-sm:p-0  max-sm:gap-0 "
+                className="bg-parchemin-ingredient p-4 bg-[url('./assets/parch.png')] bg-cover bg-center bg-no-repeat h-72 w-72  flex flex-col  items-center justify-center
+          max-sm:w-32 max-sm:h-60 max-sm:bg-contain max-sm:p-0  max-sm:gap-0"
               >
                 <img
                   src={potionSelected?.attributes.image}
                   alt="potion"
-                  className="w-14 h-12  max-sm:w-6 max-sm:h-6 "
+                  className="w-1/2 m-h-1/2  max-sm:w-6 max-sm:h-6"
                 />
-                <span
-                  className=" text-white text-center font-irish flex flex-col
-             max-sm:text-xs 
-            "
-                >
-                  <p className="w-48 max-sm:w-22 max-sm:text-xs">
+                <span className="text-white text-center font-irish flex flex-col w-11/12 max-sm:text-xs">
+                  <p className="text-shadow font-montserrat font-extrabold max-sm:text-xs drop-shadow-md">
                     {potionSelected?.attributes.name}
                   </p>
-                  <p className="w-48 max-sm:w-22 max-sm:text-xs">
-                    {potionSelected?.attributes.characteristics}
-                  </p>
-                  <p className="w-48 max-sm:w-22 max-sm:text-xs">
+                  <p className="text-shadow mt-2 max-sm:text-xs font-montserrat drop-shadow-md">
                     {potionSelected?.attributes.effect}{" "}
                   </p>
                 </span>

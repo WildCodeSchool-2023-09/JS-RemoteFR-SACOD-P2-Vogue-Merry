@@ -1,13 +1,16 @@
 import { NavLink } from "react-router-dom";
-
 import PlayingMusic from "./Music";
+import logo from "../assets/logo.png";
+import chaudron from "../assets/chaudron.png";
+import potion from "../assets/potion.svg";
+import trophy from "../assets/trophy.svg";
 
 function NavBar() {
   return (
     <nav>
       <NavLink to="/">
         <div className="head">
-          <img id="logo" src="../src/assets/logo.png" alt="logo" />
+          <img id="logo" src={logo} alt="logo" />
           <div className="title">
             <h1>Elixir Maker</h1>
             <p>TEST YOUR KNOWLEDGE</p>
@@ -18,11 +21,7 @@ function NavBar() {
         <li>
           <NavLink to="difficulty">
             <button id="playButton" type="button">
-              <img
-                id="potion"
-                src="../src/assets/chaudron.png"
-                alt="chaudron"
-              />
+              <img id="potion" src={chaudron} alt="chaudron" />
               <h1>Play</h1>
             </button>
           </NavLink>
@@ -30,7 +29,7 @@ function NavBar() {
         <li>
           <NavLink to="elixir">
             <button id="potionButton" type="button">
-              <img id="potion" src="../src/assets/potion.svg" alt="potion" />
+              <img id="potion" src={potion} alt="potion" />
               <h1>Elixirs</h1>
             </button>
           </NavLink>
@@ -38,7 +37,7 @@ function NavBar() {
         <li>
           <NavLink to="leaderboard">
             <button id="trophyButton" type="button">
-              <img id="trophy" src="../src/assets/trophy.svg" alt="trophy" />
+              <img id="trophy" src={trophy} alt="trophy" />
               <h1>Leaderboard</h1>
             </button>
           </NavLink>
