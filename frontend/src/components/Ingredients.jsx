@@ -60,7 +60,7 @@ function Ingredients({
   return (
     <button
       type="button"
-      className={`flex bg-purple-heart-500 rounded text-white font-irish w-full h-full justify-center items-center z-10 ${
+      className={`flex bg-purple-heart-500 rounded text-shadow text-white font-irish w-full h-full justify-center items-center z-10 ${
         isTheGoodOne ? "disabled:bg-green-500" : "disabled:bg-red-500"
       }`}
       onClick={() => {

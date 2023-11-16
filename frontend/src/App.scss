@@ -73,6 +73,10 @@ h1 > p {
   display: flex;
   align-items: center;
 }
+#playButton {
+  display: flex;
+  align-items: center;
+}
 #trophyButton {
   display: flex;
   align-items: center;
@@ -307,8 +311,8 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   @media screen and (max-width: 450px) {
-    background-image: url("./assets/class-mobile.jpg");
-    background-size: contain;
+    background-image: url("./assets/classmobile.png");
+    background-size: cover;
     background-repeat: no-repeat;
   }
 }
@@ -394,4 +398,13 @@ footer {
 .allIngredients {
   position: relative;
   top: -100px;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px black;
+}
+
+.bg-parchemin-ingredient {
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
